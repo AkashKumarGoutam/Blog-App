@@ -53,7 +53,7 @@ function AllCategory() {
 
   return (
     <>
-      <h1 className="text-xl pt-24 font-semibold underline">All Category</h1>
+      <h1 className="text-xl lg:pt-24 font-semibold underline">All Category</h1>
       {categories.length > 0 ? (
         categories.map((category) => (
           <div

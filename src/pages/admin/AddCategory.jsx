@@ -61,7 +61,7 @@ function AddCategory() {
   }, []);
 
   return (
-    <div className="flex pt-24 justify-center items-center ">
+    <div className="flex lg:pt-24 justify-center items-center ">
       <div className="flex flex-col border-2 border-gray-300 rounded-xl py-4 px-12">
         <h1 className="text-xl font-semibold flex justify-center underline py-4">
           Add Category

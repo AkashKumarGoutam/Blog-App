@@ -59,12 +59,12 @@ function AllPost() {
 
   return (
     <>
-      <h1 className="text-xl pt-32 font-semibold underline">All Posts</h1>
+      <h1 className="text-xl lg:pt-24 font-semibold underline">All Posts</h1>
       {posts.length > 0 ? (
         posts.map((post) => (
           <div
             key={post.id}
-            className="w-[80%] mb-5 hover:border-4 hover:border-black transition duration-300 flex justify-between items-center border-2 border-gray-300 rounded-lg p-3 mt-3"
+            className="lg:w-[80%] mb-5 hover:border-4 hover:border-black transition duration-300 flex justify-between items-center border-2 border-gray-300 rounded-lg p-3 mt-3"
           >
             <div className="flex flex-col justify-center w-full">
               <div className="flex justify-between items-start">

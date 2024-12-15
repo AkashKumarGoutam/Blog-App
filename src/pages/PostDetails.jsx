@@ -34,7 +34,7 @@ function PostDetails() {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-screen">
+      <div className="flex pt-32 justify-center items-center h-screen">
         <h1 className="text-xl font-semibold">Loading post...</h1>
       </div>
     );
@@ -42,7 +42,7 @@ function PostDetails() {
 
   if (!post) {
     return (
-      <div className="flex justify-center items-center h-screen">
+      <div className="flex pt-32 justify-center items-center h-screen">
         <h1 className="text-xl font-semibold">Post not found</h1>
       </div>
     );
@@ -50,13 +50,13 @@ function PostDetails() {
 
   return (
     <>
-    <div className="p-6 bg-blue-200 h-screen">
+    <div className="p-6 pt-32 bg-blue-200 h-screen">
     <div className="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg">
-      <h1 className="text-4xl font-bold text-gray-800 mb-4">{post.title}</h1>
+      <h1 className="lg:text-4xl text-xl font-bold text-gray-800 mb-4">{post.title}</h1>
       <p className="text-gray-600 mb-6">
         <span className="font-semibold">Author:</span> {post.author}
       </p>
-      <p className="text-gray-700 text-lg leading-relaxed mb-6">{post.description}</p>
+      <p className="text-gray-700 lg:text-lg text-sm leading-relaxed mb-6">{post.description}</p>
       {post.imageURL && (
         <div className="w-full flex justify-center mb-6">
           <img

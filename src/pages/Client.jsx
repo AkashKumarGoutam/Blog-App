@@ -76,7 +76,7 @@ function Client() {
     <>
     <Subnavbar/>
       <div className="flex justify-center">
-        <div className="p-6 pt-32 w-[40%] max-w-3xl">
+        <div className="p-6 lg:pt-32 pt-40 lg:w-[40%] max-w-3xl">
           <h1 className="text-xl font-semibold underline text-center mb-6">All Posts</h1>
           <div className="flex flex-col space-y-6">
             {posts.length > 0 ? (

@@ -7,6 +7,7 @@ const auth = getAuth(app);
 
 const Navbar = () => {
   const [user, setUser] = useState(null);
+  const [menuOpen, setMenuOpen] = useState(false); // State to toggle menu
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -25,33 +26,52 @@ const Navbar = () => {
     }
   };
 
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen); // Toggle menu open/close
+  };
+
   return (
-    <nav className="flex fixed w-full justify-between items-center p-4 bg-gray-200">
-      {user ? (
-        <div>
-          <h1 className="text-xl font-bold">Admin Panel</h1>
-        </div>
-      ):(
-        <div>
-          <h1 className="text-xl font-bold">Client Panel</h1>
-          </div>
-      )}
-      {user ? (
-        <div className="flex items-center gap-4">
-          <span className="text-sm text-gray-700">Welcome, {user.email}</span>
-          <button
-            onClick={handleLogout}
-            className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
-          >
-            Logout
-          </button>
-        </div>
-      ) : (
-        <div className='flex gap-3 items-center'>
-          <span className="text-gray-600">Please log in for Admin</span>
-          <Link to="/admin" className='bg-black text-white p-2 rounded-lg'>Admin</Link>
-        </div>
-      )}
+    <nav className="fixed top-0 left-0 w-full z-50 bg-gray-200 shadow-md">
+      {/* Logo/Title and Hamburger */}
+      <div className="flex justify-between items-center p-4">
+        <h1 className="text-xl font-bold">{user ? "Admin Panel" : "Client Panel"}</h1>
+        <button
+          className="md:hidden focus:outline-none text-2xl"
+          onClick={toggleMenu}
+        >
+          {menuOpen ? <>&#x2715;</> : <>&#9776;</>}
+        </button>
+      </div>
+
+      {/* Navbar Menu */}
+      <div
+        className={`absolute top-16 left-0 w-full bg-gray-200 p-4 flex flex-col gap-4 md:flex md:flex-row md:static md:w-auto md:p-0 md:bg-transparent ${
+          menuOpen ? "block" : "hidden"
+        }`}
+      >
+        {user ? (
+          <>
+            <span className="text-sm text-gray-700">Welcome, {user.email}</span>
+            <button
+              onClick={handleLogout}
+              className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+            >
+              Logout
+            </button>
+          </>
+        ) : (
+          <>
+            <span className="text-gray-600">Please log in for Admin</span>
+            <Link
+              to="/admin"
+              className="bg-black text-white p-2 rounded-lg text-center"
+              onClick={toggleMenu}
+            >
+              Admin
+            </Link>
+          </>
+        )}
+      </div>
     </nav>
   );
 };
