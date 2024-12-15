@@ -70,7 +70,9 @@ function AllPost() {
               <div className="flex justify-between items-start">
                 <div className="flex-1 pr-4">
                   <h1 className="font-bold underline">{post.title}</h1>
-                  <p className="text-sm py-3">{post.description}</p>
+                  {/* <p className="text-sm py-3">{post.description}</p> */}
+                  <div dangerouslySetInnerHTML={{ __html: post.description }}></div>
+
                   {/* Display category */}
                   <p className="text-sm text-gray-500">
                     <strong>Category:</strong> {post.category || "Uncategorized"}

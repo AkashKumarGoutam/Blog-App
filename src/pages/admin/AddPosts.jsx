@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { TextareaAutosize, TextField } from "@mui/material";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 import { getFirestore, collection, getDocs, addDoc } from "firebase/firestore";
 import { app } from "../../firebase/Firebase";
 
 function AddPosts() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  // const [value, setValue] = useState('');
+
   const [author, setAuthor] = useState("");
   const [imageURL, setImageURL] = useState("");
   const [category, setCategory] = useState("");
@@ -92,13 +96,20 @@ function AddPosts() {
           />
 
           {/* Description Field */}
-          <TextareaAutosize
+          {/* <TextareaAutosize
             aria-label="Post description"
             minRows={4}
             placeholder="Description"
             className="w-full border-2 border-gray-300 rounded-lg p-3"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
+          >
+          </TextareaAutosize> */}
+          <ReactQuill
+            theme="snow"
+            value={description} 
+            onChange={(value) => setDescription(value)} 
+            placeholder="Write your content here..."
           />
 
           {/* Author Field */}
