@@ -31,7 +31,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-gray-200 shadow-md">
+    <nav className="lg:flex lg:justify-between lg:items-center lg:px-12 fixed top-0 left-0 w-full z-50 bg-gray-200 shadow-md">
       {/* Logo/Title and Hamburger */}
       <div className="flex justify-between items-center p-4">
         <h1 className="text-xl font-bold">{user ? "Admin Panel" : "Client Panel"}</h1>
@@ -45,7 +45,7 @@ const Navbar = () => {
 
       {/* Navbar Menu */}
       <div
-        className={`absolute top-16 left-0 w-full bg-gray-200 p-4 flex flex-col gap-4 md:flex md:flex-row md:static md:w-auto md:p-0 md:bg-transparent ${
+        className={`lg:flex lg:justify-center lg:items-center absolute top-16 left-0 w-full bg-gray-200 p-4 flex flex-col gap-4 md:flex md:flex-row md:static md:w-auto md:p-0 md:bg-transparent ${
           menuOpen ? "block" : "hidden"
         }`}
       >

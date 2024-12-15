@@ -46,7 +46,7 @@ function Subnavbar({ onCategorySelect }) {
   }
 
   return (
-    <div className="fixed top-16 w-full bg-gray-600 text-white">
+    <div className="fixed top-16 lg:top-12 w-full bg-gray-600 text-white">
       {/* Hamburger Menu */}
       <div className="flex justify-between items-center p-4 md:hidden">
         <h2 className="text-lg font-bold">Categories</h2>
