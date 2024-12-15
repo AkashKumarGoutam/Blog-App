@@ -26,7 +26,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex justify-between items-center p-4 bg-gray-200">
+    <nav className="flex fixed w-full justify-between items-center p-4 bg-gray-200">
       {user ? (
         <div>
           <h1 className="text-xl font-bold">Admin Panel</h1>

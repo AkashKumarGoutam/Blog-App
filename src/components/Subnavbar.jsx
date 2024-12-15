@@ -33,7 +33,7 @@ function Subnavbar({ onCategorySelect }) {
   }
 
   return (
-    <div className="flex justify-center p-4 bg-gray-600 text-white gap-4">
+    <div className="flex fixed w-full mt-16 justify-center p-4 bg-gray-600 text-white gap-4">
       {categories.length > 0 ? (
         categories.map((category) => (
           <button

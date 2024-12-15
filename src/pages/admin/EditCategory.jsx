@@ -61,7 +61,7 @@ function EditCategory() {
   };
 
   return (
-    <div className="flex flex-col items-center px-4">
+    <div className="flex pt-32 flex-col items-center px-4">
       <div className="flex flex-col border-2 border-gray-300 rounded-xl py-6 px-8 w-full max-w-lg">
         <h1 className="text-2xl font-semibold text-center underline mb-6">
           Edit Category

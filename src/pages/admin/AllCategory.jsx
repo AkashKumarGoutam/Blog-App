@@ -53,14 +53,14 @@ function AllCategory() {
 
   return (
     <>
-      <h1 className="text-xl font-semibold underline">All Category</h1>
+      <h1 className="text-xl pt-24 font-semibold underline">All Category</h1>
       {categories.length > 0 ? (
         categories.map((category) => (
           <div
             key={category.id}
             className="flex justify-between items-center border-2 border-gray-300 rounded-lg p-3 mt-3"
           >
-            <h1>{category.name}</h1>
+            <h1 className="w-96">{category.name}</h1>
             <Link
               to={`/edit-category/${category.id}`}
               className="bg-black text-white p-2 rounded-sm ml-2 hover:bg-blue-800"

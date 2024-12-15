@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 function Sidebar() {
   return (
-    <div>
+    <div className='pt-24'>
       <div>
         <NavLink 
           to="all-posts" 

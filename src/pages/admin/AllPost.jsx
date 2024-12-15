@@ -59,7 +59,7 @@ function AllPost() {
 
   return (
     <>
-      <h1 className="text-xl font-semibold underline">All Posts</h1>
+      <h1 className="text-xl pt-32 font-semibold underline">All Posts</h1>
       {posts.length > 0 ? (
         posts.map((post) => (
           <div

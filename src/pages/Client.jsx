@@ -76,9 +76,9 @@ function Client() {
     <>
     <Subnavbar/>
       <div className="flex justify-center">
-        <div className="p-6 w-[40%] max-w-3xl">
+        <div className="p-6 pt-32 w-[40%] max-w-3xl">
           <h1 className="text-xl font-semibold underline text-center mb-6">All Posts</h1>
-          <div className="flex flex-col items-center space-y-6">
+          <div className="flex flex-col space-y-6">
             {posts.length > 0 ? (
               posts.map((post) => (
                 <Link
@@ -86,7 +86,7 @@ function Client() {
                   key={post.id}
                   className="w-full border-2 border-gray-300 rounded-lg p-4 hover:border-black transition duration-300"
                 >
-                  <div className="flex flex-col items-center text-center">
+                  <div className="flex flex-col">
                     <h1 className="font-bold text-lg underline mb-2">{post.title}</h1>
                     <p className="text-sm mb-2">{post.description}</p>
                     <p className="text-sm text-gray-500 mb-4">
