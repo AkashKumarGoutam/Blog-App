@@ -148,7 +148,7 @@ function Client() {
   return (
     <>
     {/* <Subnavbar/> */}
-      <div className="bg-black">
+      <div className="">
        {/* <HeroSection/> */}
       {/* <CricketCategories/> */}
    {/* <Features/> */}

@@ -35,8 +35,8 @@ function LatestSection() {
 
   if (loading) {
     return (
-      <div className="flex justify-center bg-white items-center h-screen">
-        <div className="w-16 h-16 border-4 border-blue-800 border-dotted rounded-full animate-spin"></div>
+      <div className="flex justify-center items-center h-screen">
+        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500 border-solid border-gray-200"></div>
       </div>
     );
   }

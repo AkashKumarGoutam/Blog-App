@@ -1,6 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 function AboutUs() {
+  const [loading, setLoading] = useState(true);
+
+  // Simulate loading for demo purposes (remove or adjust for real data fetching)
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 500); // Simulate loading for 2 seconds
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500 border-solid border-gray-200"></div>
+      </div>
+    );
+  }
+
   return (
     <div className="bg-gradient-to-b from-blue-50 via-white to-gray-100 min-h-screen px-6 py-10">
       {/* Hero Section */}

@@ -6,6 +6,7 @@ import { app } from '../firebase/Firebase' // Firebase app configuration
 function AllMatchCardPage() {
   const [matchCards, setMatchCards] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const [loading, setLoading] = useState(true); // Add loading state
   const db = getFirestore(app); // Initialize Firestore
 
   useEffect(() => {
@@ -20,6 +21,8 @@ function AllMatchCardPage() {
         setMatchCards(matches);
       } catch (error) {
         console.error("Error fetching matchcards: ", error);
+      } finally {
+        setLoading(false); // Set loading to false after data is fetched
       }
     };
 
@@ -30,6 +33,14 @@ function AllMatchCardPage() {
   const filteredMatchCards = matchCards.filter((match) =>
     match.matchName?.toLowerCase().includes(searchQuery.toLowerCase())
   );
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500 border-solid border-gray-200"></div>
+      </div>
+    );
+  }
 
   return (
     <>

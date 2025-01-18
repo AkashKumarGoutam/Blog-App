@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 function AllNewsArticles() {
   const [newsArticles, setNewsArticles] = useState([]);
   const [loading, setLoading] = useState(true);
-  const navigate =useNavigate();
+  const navigate = useNavigate();
 
   // Fetch all news articles from Firestore
   const fetchNewsArticles = async () => {
@@ -37,7 +37,7 @@ function AllNewsArticles() {
   if (loading) {
     return (
       <div className="flex justify-center items-center h-screen">
-        <div className="w-16 h-16 border-4 border-blue-400 border-dotted rounded-full animate-spin"></div>
+        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500 border-solid border-gray-200"></div>
       </div>
     );
   }
@@ -68,7 +68,12 @@ function AllNewsArticles() {
                 </div>
                 <h3 className="text-lg font-bold mb-2">{article.title}</h3>
                 <p className="text-gray-600 mb-4 line-clamp-3">{article.description}</p>
-                <button onClick={() => handleGoToParticularNewsArticle(article.id)} className="text-blue-600 hover:text-blue-800">Read More →</button>
+                <button
+                  onClick={() => handleGoToParticularNewsArticle(article.id)}
+                  className="text-blue-600 hover:text-blue-800"
+                >
+                  Read More →
+                </button>
               </div>
             </article>
           ))}

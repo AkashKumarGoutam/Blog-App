@@ -6,6 +6,7 @@ import { app } from "../firebase/Firebase"; // Import your Firebase app configur
 function MatchPosts() {
   const { slug } = useParams(); // Extract slug from route params
   const [matchPosts, setMatchPosts] = useState([]);
+  const [loading, setLoading] = useState(true); // Loading state
   const db = getFirestore(app);
 
   useEffect(() => {
@@ -23,6 +24,8 @@ function MatchPosts() {
         setMatchPosts(posts);
       } catch (error) {
         console.error("Error fetching matchposts: ", error);
+      } finally {
+        setLoading(false); // Set loading to false after fetching
       }
     };
 
@@ -32,7 +35,11 @@ function MatchPosts() {
   return (
     <div className="p-6 px-12">
       <h2 className="text-xl font-bold my-6">Match Posts List</h2>
-      {matchPosts.length === 0 ? (
+      {loading ? (
+        <div className="flex justify-center items-center h-64">
+          <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500 border-solid border-gray-200"></div>
+        </div>
+      ) : matchPosts.length === 0 ? (
         <p className="text-gray-500">No match posts available for this slug.</p>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -68,7 +75,9 @@ function MatchPosts() {
               <hr className="my-2" />
               <div
                 className="text-sm text-gray-700 mt-2"
-                dangerouslySetInnerHTML={{ __html: post.description || "No description available." }}
+                dangerouslySetInnerHTML={{
+                  __html: post.description || "No description available.",
+                }}
               ></div>
             </div>
           ))}
