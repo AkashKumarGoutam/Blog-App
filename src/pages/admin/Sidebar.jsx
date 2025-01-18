@@ -91,6 +91,30 @@ function Sidebar() {
             </NavLink>
             <hr />
           </div>
+          <div>
+            <NavLink
+              to="add-matches"
+              onClick={closeSidebar} // Close sidebar when clicked
+              className={({ isActive }) =>
+                isActive ? 'text-blue-500 font-bold' : 'text-gray-500'
+              }
+            >
+              Add Matches
+            </NavLink>
+            <hr />
+          </div>
+          <div>
+            <NavLink
+              to="add-match-posts"
+              onClick={closeSidebar} // Close sidebar when clicked
+              className={({ isActive }) =>
+                isActive ? 'text-blue-500 font-bold' : 'text-gray-500'
+              }
+            >
+              Add Matches post
+            </NavLink>
+            <hr />
+          </div>
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
-import { app } from "../firebase/Firebase";
+import { app } from "../../firebase/Firebase";
 
 function Subnavbar({ onCategorySelect }) {
   const [categories, setCategories] = useState([]);
