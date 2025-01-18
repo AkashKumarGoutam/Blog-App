@@ -89,7 +89,7 @@ function AllMatches() {
         </div>
 
         <button
-          className={`absolute top-1/2 left-1 transform -translate-y-1/2 bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-full shadow-md focus:outline-none ${
+          className={`absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-full shadow-md focus:outline-none ${
             currentIndex === 0 ? "opacity-50 cursor-not-allowed" : ""
           }`}
           onClick={handlePrev}
