@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { getFirestore, collection, getDocs, query, orderBy, limit } from "firebase/firestore";
 import { app } from "../firebase/Firebase";
 import { Link } from "react-router-dom";
+import LoadingComponents from "./LoadingComponents";
 
 function LatestSection() {
   const [latestPosts, setLatestPosts] = useState([]);
@@ -35,9 +36,7 @@ function LatestSection() {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-screen">
-        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500 border-solid border-gray-200"></div>
-      </div>
+      <LoadingComponents/>
     );
   }
 

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { getFirestore, collection, getDocs } from 'firebase/firestore'
 import { app } from '../firebase/Firebase' // Firebase app configuration
+import LoadingComponents from '../components/LoadingComponents';
 
 function AllMatchCardPage() {
   const [matchCards, setMatchCards] = useState([]);
@@ -36,9 +37,7 @@ function AllMatchCardPage() {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-screen">
-        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500 border-solid border-gray-200"></div>
-      </div>
+      <LoadingComponents/>
     );
   }
 
@@ -46,7 +45,7 @@ function AllMatchCardPage() {
     <>
       <div className='bg-gray-300 '>
         <div className="lg:flex lg:justify-between lg:px-12 px-10 pt-20 py-4">
-          <h1 className="font-semibold py-3 underline">All Matches</h1>
+          <h1 className="font-semibold py-3 text-xl ">All Matches</h1>
           <div className="flex">
             <div className="bg-indigo-600 px-2 lg:py-1 py-3 text-gray-100 flex justify-center items-center">
               <h1>Search</h1>
@@ -63,11 +62,11 @@ function AllMatchCardPage() {
           {filteredMatchCards.map((match) => (
             <div
               key={match.id}
-              className="bg-white border cursor-pointer text-black rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 w-[90%] h-60 mx-auto my-6 p-4"
+              className="bg-white border border-black hover:shadow-indigo-400 cursor-pointer text-black rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 w-[90%] h-60 mx-auto my-6 p-4"
             >
               <Link to={`/match-post/${match.slug}`}>
                 {/* Match Info */}
-                <div className="flex w-64 px-4 justify-between items-center mb-4">
+                <div className="flex w-64 justify-between items-center mb-4">
                   <div className="flex items-center gap-2 text-xs">
                     <span className="text-red-800 font-medium">
                       {match.date || "N/A"}

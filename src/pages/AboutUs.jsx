@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import LoadingComponents from '../components/LoadingComponents';
 
 function AboutUs() {
   const [loading, setLoading] = useState(true);
@@ -11,9 +12,7 @@ function AboutUs() {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-screen">
-        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500 border-solid border-gray-200"></div>
-      </div>
+      <LoadingComponents/>
     );
   }
 

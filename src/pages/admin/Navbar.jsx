@@ -35,6 +35,12 @@ const Navbar = () => {
               Home
             </Link>
             <Link
+              to="/about_us"
+              className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+            >
+              About Us
+            </Link>
+            <Link
               to="/all-match-card"
               className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
             >
@@ -46,23 +52,18 @@ const Navbar = () => {
             >
               All News Articles
             </Link>
+            
             <Link
-              to="/about_us"
-              className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-            >
-              About Us
-            </Link>
-            <Link
-              to="/statistics"
+              to="/"
               className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
             >
               Statistics
             </Link>
             <Link
-              to="/newsletter"
+              to="/contact-us"
               className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
             >
-              Newsletter
+              Contact Us
             </Link>
           </div>
         </div>

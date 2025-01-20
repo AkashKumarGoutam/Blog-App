@@ -33,8 +33,8 @@ function Footer() {
                     <ul className="space-y-2">
                         <li><Link to="/" className="hover:text-white transition duration-300">Home</Link></li>
                         <li><Link to="/all-match-card" className="hover:text-white transition duration-300">All Match Cards</Link></li>
-                        <li><Link to="/all-news-articles" className="hover:text-white transition duration-300">All News Articles</Link></li>
-                        <li><Link to="/about-us" className="hover:text-white transition duration-300">About Us</Link></li>
+                        <li><Link to="/all_news_articles" className="hover:text-white transition duration-300">All News Articles</Link></li>
+                        <li><Link to="/about_us" className="hover:text-white transition duration-300">About Us</Link></li>
                         <li><Link to="/" className="hover:text-white transition duration-300">Statistics</Link></li>
                     </ul>
                 </div>

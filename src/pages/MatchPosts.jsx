@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getFirestore, collection, getDocs, query, where } from "firebase/firestore";
 import { app } from "../firebase/Firebase"; // Import your Firebase app configuration
+import LoadingComponents from "../components/LoadingComponents";
 
 function MatchPosts() {
   const { slug } = useParams(); // Extract slug from route params
@@ -36,9 +37,7 @@ function MatchPosts() {
     <div className="p-6 px-12">
       <h2 className="text-xl font-bold my-6">Match Posts List</h2>
       {loading ? (
-        <div className="flex justify-center items-center h-64">
-          <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500 border-solid border-gray-200"></div>
-        </div>
+        <LoadingComponents/>
       ) : matchPosts.length === 0 ? (
         <p className="text-gray-500">No match posts available for this slug.</p>
       ) : (
