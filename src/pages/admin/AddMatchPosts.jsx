@@ -3,11 +3,12 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { TextField, Button, MenuItem, Select, InputLabel, FormControl } from "@mui/material";
 import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
-import { app } from "../../firebase/Firebase"; // Adjust the path based on your project structure
+import { app } from "../../firebase/Firebase";
 
 const AddMatchPosts = () => {
-  const [matchCards, setMatchCards] = useState([]); // To store data fetched from "matchcards" collection
-  const [matchPosts, setMatchPosts] = useState([]); // To store data fetched from "matchposts" collection
+  const [matchCards, setMatchCards] = useState([]);
+  const [matchPosts, setMatchPosts] = useState([]);
+  const [flags, setFlags] = useState([]);
   const [matchPost, setMatchPost] = useState({
     title: "",
     description: "",
@@ -21,7 +22,7 @@ const AddMatchPosts = () => {
 
   const db = getFirestore(app);
 
-  // Fetch data from the "matchcards" collection
+  // Fetch match cards
   useEffect(() => {
     const fetchMatchCards = async () => {
       try {
@@ -40,7 +41,7 @@ const AddMatchPosts = () => {
     fetchMatchCards();
   }, [db]);
 
-  // Fetch data from the "matchposts" collection
+  // Fetch match posts
   useEffect(() => {
     const fetchMatchPosts = async () => {
       try {
@@ -59,7 +60,25 @@ const AddMatchPosts = () => {
     fetchMatchPosts();
   }, [db]);
 
-  // Handle form submission to add a match post
+  // Fetch flags
+  useEffect(() => {
+    const fetchFlags = async () => {
+      try {
+        const flagsCollection = collection(db, "flags");
+        const flagsSnapshot = await getDocs(flagsCollection);
+        const flagsList = flagsSnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setFlags(flagsList);
+      } catch (error) {
+        console.error("Error fetching flags:", error);
+      }
+    };
+
+    fetchFlags();
+  }, [db]);
+
   const handleAddMatchPost = async () => {
     try {
       if (!matchPost.slug || !matchPost.matchCardId) {
@@ -73,7 +92,6 @@ const AddMatchPosts = () => {
         dateOfPost: new Date().toISOString(),
       });
 
-      // Reset form fields
       setMatchPost({
         title: "",
         description: "",
@@ -87,7 +105,6 @@ const AddMatchPosts = () => {
 
       alert("Match post added successfully!");
 
-      // Refresh match posts list
       const matchPostsSnapshot = await getDocs(matchPostsCollection);
       const matchPostsList = matchPostsSnapshot.docs.map((doc) => ({
         id: doc.id,
@@ -102,7 +119,7 @@ const AddMatchPosts = () => {
 
   return (
     <div className="p-6">
-      <h2 className="text-xl font-bold mb-4">Add a Match Post</h2>
+      <h2 className="text-xl font-bold mb-4">Add Match Post</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
         <TextField
           label="Title"
@@ -117,12 +134,20 @@ const AddMatchPosts = () => {
           placeholder="Write your content here..."
           className="mb-10"
         />
-        <TextField
-          label="Image URL"
-          value={matchPost.imageUrl}
-          onChange={(e) => setMatchPost({ ...matchPost, imageUrl: e.target.value })}
-          fullWidth
-        />
+        <FormControl fullWidth>
+          <InputLabel id="flag-label">Select Flag</InputLabel>
+          <Select
+            labelId="flag-label"
+            value={matchPost.imageUrl}
+            onChange={(e) => setMatchPost({ ...matchPost, imageUrl: e.target.value })}
+          >
+            {flags.map((flag) => (
+              <MenuItem key={flag.id} value={flag.url}>
+                {flag.name}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
         <TextField
           label="Author"
           value={matchPost.author}
@@ -159,11 +184,7 @@ const AddMatchPosts = () => {
           </Select>
         </FormControl>
       </div>
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={handleAddMatchPost}
-      >
+      <Button variant="contained" color="primary" onClick={handleAddMatchPost}>
         Add Match Post
       </Button>
 
@@ -171,12 +192,13 @@ const AddMatchPosts = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {matchPosts.map((post) => (
           <div key={post.id} className="bg-white shadow-md rounded-lg p-4 border border-gray-200">
-             <img src={post.imageUrl} alt={post.title} className="w-full h-40 object-cover mt-2 rounded-md" />
+            <img src={post.imageUrl} alt={post.title} className="w-full h-40 object-cover mt-2 rounded-md" />
             <h3 className="text-lg font-semibold">{post.title}</h3>
             <p className="text-sm text-gray-600">Author: {post.author}</p>
             <p className="text-sm text-gray-600">Date of Post: {new Date(post.dateOfPost).toLocaleDateString()}</p>
             <p className="text-sm text-gray-600">Date of Match: {new Date(post.dateOfMatch).toLocaleDateString()}</p>
-            <p className="text-sm text-gray-600">Slug: {post.slug}</p><hr/>
+            <p className="text-sm text-gray-600">Slug: {post.slug}</p>
+            <hr />
             <div
               className="text-sm text-gray-700 mt-2"
               dangerouslySetInnerHTML={{ __html: post.description }}

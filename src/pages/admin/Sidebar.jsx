@@ -115,6 +115,18 @@ function Sidebar() {
             </NavLink>
             <hr />
           </div>
+          <div>
+            <NavLink
+              to="add-flag-imageURL"
+              onClick={closeSidebar} // Close sidebar when clicked
+              className={({ isActive }) =>
+                isActive ? 'text-blue-500 font-bold' : 'text-gray-500'
+              }
+            >
+              Add Flag imageURL
+            </NavLink>
+            <hr />
+          </div>
         </div>
       </div>
     </div>

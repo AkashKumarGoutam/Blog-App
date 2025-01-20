@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { TextField } from "@mui/material";
 import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
 import { app } from "../../firebase/Firebase"; // Import Firebase configuration
 
@@ -66,14 +65,15 @@ function AddCategory() {
         <h1 className="text-xl font-semibold flex justify-center underline py-4">
           Add Category
         </h1>
-        <TextField
+        <input
           id="add-category"
           label="Add Category"
           type="text"
           variant="outlined"
           value={category}
           onChange={(e) => setCategory(e.target.value)}
-          className="py-2"
+          className="py-2 px-2 border"
+          placeholder="enter category"
         />
         <div className="py-4 flex justify-center">
           <button

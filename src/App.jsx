@@ -23,6 +23,8 @@ import MatchPosts from './pages/MatchPosts.jsx';
 import AllMatchCardPage from './pages/AllMatchCardPage.jsx';
 import ParticularNewsArticles from './pages/ParticularNewsArticles.jsx';
 import ScrollToTop from './components/ScrollToTop.jsx';
+import AddFlagImageURL from './pages/admin/AddFlagImageURL.jsx';
+import ContactPage from './components/ContactPage.jsx';
 
 const App = () => {
   return (
@@ -55,6 +57,7 @@ const App = () => {
           <Route path="add-category" element={<AddCategory />} />
           <Route path="add-matches" element={<AddMatches />} />
           <Route path="add-match-posts" element={<AddMatchPosts />} />
+          <Route path="add-flag-imageURL" element={<AddFlagImageURL />} />
         </Route>
         <Route path="/edit-post/:id" element={<EditPost />} />
         <Route path="/edit-category/:id" element={<EditCategory />} />
@@ -62,6 +65,7 @@ const App = () => {
 
         {/* new components */}
         <Route path="/about_us" element={<AboutUs />} />
+        <Route path="/contact-us" element={<ContactPage />} />
         <Route path="/all_news_articles" element={<AllNewsArticles />} />
         <Route path="/particular-news-article/:id" element={<ParticularNewsArticles />} />
         <Route path="/match_score" element={<MatchScorePage />} />

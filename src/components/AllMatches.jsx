@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import MatchCard from "./MatchCard";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
-import { app } from "../firebase/Firebase"; // Import your Firebase app
+import { app } from "../firebase/Firebase";
 import { useNavigate } from "react-router-dom";
 
 function AllMatches() {
@@ -19,7 +19,13 @@ function AllMatches() {
           id: doc.id,
           ...doc.data(),
         }));
-        setMatchCards(matches);
+
+        // Sort by date (ascending)
+        const sortedMatches = matches.sort((a, b) => 
+          new Date(a.date) - new Date(b.date)
+        );
+
+        setMatchCards(sortedMatches);
       } catch (error) {
         console.error("Error fetching matchcards: ", error);
       }

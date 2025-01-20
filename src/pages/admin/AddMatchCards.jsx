@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { TextField } from "@mui/material";
+import { TextField, Select, MenuItem, InputLabel, FormControl } from "@mui/material";
 import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
 import { app } from "../../firebase/Firebase"; // Adjust the path based on your project structure
 
 const AddMatchCards = () => {
   const [matches, setMatches] = useState([]);
+  const [flags, setFlags] = useState([]); // To store flag names and URLs
   const [newMatch, setNewMatch] = useState({
     battleName: "",
     slug: "",
@@ -37,6 +38,25 @@ const AddMatchCards = () => {
     };
 
     fetchMatches();
+  }, [db]);
+
+  // Fetch flags from Firestore
+  useEffect(() => {
+    const fetchFlags = async () => {
+      try {
+        const flagsCollection = collection(db, "flags");
+        const flagsSnapshot = await getDocs(flagsCollection);
+        const flagsList = flagsSnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setFlags(flagsList);
+      } catch (error) {
+        console.error("Error fetching flags:", error);
+      }
+    };
+
+    fetchFlags();
   }, [db]);
 
   // Add new match to Firestore
@@ -90,24 +110,40 @@ const AddMatchCards = () => {
           onChange={(e) => setNewMatch({ ...newMatch, teamA: e.target.value })}
           fullWidth
         />
-        <TextField
-          label="Team A Image URL"
-          value={newMatch.teamAImage}
-          onChange={(e) => setNewMatch({ ...newMatch, teamAImage: e.target.value })}
-          fullWidth
-        />
+        <FormControl fullWidth>
+          <InputLabel id="teamAImage-label">Select Flag for Team A</InputLabel>
+          <Select
+            labelId="teamAImage-label"
+            value={newMatch.teamAImage}
+            onChange={(e) => setNewMatch({ ...newMatch, teamAImage: e.target.value })}
+          >
+            {flags.map((flag) => (
+              <MenuItem key={flag.id} value={flag.url}>
+                {flag.name}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
         <TextField
           label="Team B"
           value={newMatch.teamB}
           onChange={(e) => setNewMatch({ ...newMatch, teamB: e.target.value })}
           fullWidth
         />
-        <TextField
-          label="Team B Image URL"
-          value={newMatch.teamBImage}
-          onChange={(e) => setNewMatch({ ...newMatch, teamBImage: e.target.value })}
-          fullWidth
-        />
+        <FormControl fullWidth>
+          <InputLabel id="teamBImage-label">Select Flag for Team B</InputLabel>
+          <Select
+            labelId="teamBImage-label"
+            value={newMatch.teamBImage}
+            onChange={(e) => setNewMatch({ ...newMatch, teamBImage: e.target.value })}
+          >
+            {flags.map((flag) => (
+              <MenuItem key={flag.id} value={flag.url}>
+                {flag.name}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
         <TextField
           label="Date"
           type="date"
