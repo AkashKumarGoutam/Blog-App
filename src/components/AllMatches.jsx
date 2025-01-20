@@ -8,6 +8,7 @@ function AllMatches() {
   const [matchCards, setMatchCards] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cardsToShow, setCardsToShow] = useState(4);
+  const [isMobile, setIsMobile] = useState(false);
   const navigate = useNavigate();
   const db = getFirestore(app);
 
@@ -35,7 +36,8 @@ function AllMatches() {
   }, [db]);
 
   useEffect(() => {
-    const updateCardsToShow = () => {
+    const updateView = () => {
+      setIsMobile(window.innerWidth < 768); // Mobile view if screen width < 768px
       if (window.innerWidth < 640) {
         setCardsToShow(1);
       } else if (window.innerWidth < 1024) {
@@ -47,10 +49,10 @@ function AllMatches() {
       }
     };
 
-    updateCardsToShow();
-    window.addEventListener("resize", updateCardsToShow);
+    updateView();
+    window.addEventListener("resize", updateView);
 
-    return () => window.removeEventListener("resize", updateCardsToShow);
+    return () => window.removeEventListener("resize", updateView);
   }, []);
 
   const handleNext = () => {
@@ -72,18 +74,29 @@ function AllMatches() {
   return (
     <div className="bg-black py-2">
       <div className="relative w-full max-w-6xl mx-auto">
-        <div className="lg:flex overflow-hidden">
+        {/* Card container */}
+        <div
+          className={`lg:flex overflow-hidden ${
+            isMobile ? "overflow-x-auto whitespace-nowrap scrollbar-hide" : ""
+          }`}
+        >
           <div
-            className="flex transition-transform duration-300 ease-in-out"
-            style={{
-              transform: `translateX(-${currentIndex * (100 / cardsToShow)}%)`,
-            }}
+            className={`flex transition-transform duration-300 ease-in-out ${
+              isMobile ? "" : "relative"
+            }`}
+            style={
+              isMobile
+                ? {}
+                : { transform: `translateX(-${currentIndex * (100 / cardsToShow)}%)` }
+            }
           >
             {matchCards.map((match) => (
               <div
                 key={match.id}
                 style={{ flex: `0 0 ${100 / cardsToShow}%` }}
-                className="px-5 lg:px-0"
+                className={`px-5 lg:px-0 ${
+                  isMobile ? "inline-block w-[calc(100%-10px)]" : ""
+                }`}
               >
                 <MatchCard
                   match={match}
@@ -94,27 +107,33 @@ function AllMatches() {
           </div>
         </div>
 
-        <button
-          className={`absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-full shadow-md focus:outline-none ${
-            currentIndex === 0 ? "opacity-50 cursor-not-allowed" : ""
-          }`}
-          onClick={handlePrev}
-          disabled={currentIndex === 0}
-        >
-          &larr;
-        </button>
-        <button
-          className={`absolute top-1/2 right-1 transform -translate-y-1/2 bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-full shadow-md focus:outline-none ${
-            currentIndex + cardsToShow >= matchCards.length
-              ? "opacity-50 cursor-not-allowed"
-              : ""
-          }`}
-          onClick={handleNext}
-          disabled={currentIndex + cardsToShow >= matchCards.length}
-        >
-          &rarr;
-        </button>
+        {/* Navigation buttons for larger screens */}
+        {!isMobile && (
+          <>
+            <button
+              className={`absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-full shadow-md focus:outline-none ${
+                currentIndex === 0 ? "opacity-50 cursor-not-allowed" : ""
+              }`}
+              onClick={handlePrev}
+              disabled={currentIndex === 0}
+            >
+              &larr;
+            </button>
+            <button
+              className={`absolute top-1/2 right-1 transform -translate-y-1/2 bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-full shadow-md focus:outline-none ${
+                currentIndex + cardsToShow >= matchCards.length
+                  ? "opacity-50 cursor-not-allowed"
+                  : ""
+              }`}
+              onClick={handleNext}
+              disabled={currentIndex + cardsToShow >= matchCards.length}
+            >
+              &rarr;
+            </button>
+          </>
+        )}
 
+        {/* Indicators */}
         <div className="flex justify-center mt-4">
           {Array.from({ length: Math.max(matchCards.length - cardsToShow + 1, 0) }).map(
             (_, index) => (

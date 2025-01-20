@@ -46,8 +46,8 @@ function Footer() {
                         <li><Link to="/"className="hover:text-white transition duration-300">Test Cricket</Link></li>
                         <li><Link to="/"className="hover:text-white transition duration-300">One Day Internationals</Link></li>
                         <li><Link to="/"className="hover:text-white transition duration-300">T20 Internationals</Link></li>
-                        <li><Link to="/"className="hover:text-white transition duration-300">Domestic Cricket</Link></li>
-                        <li><Link to="/"className="hover:text-white transition duration-300">League Cricket</Link></li>
+                        <li><Link to="/"className="hover:text-white transition duration-300">T20</Link></li>
+                        {/* <li><Link to="/"className="hover:text-white transition duration-300">League Cricket</Link></li> */}
                     </ul>
                 </div>
 
