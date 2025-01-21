@@ -32,7 +32,7 @@ function AllMatchCardPage() {
 
   // Filter matches based on the search query
   const filteredMatchCards = matchCards.filter((match) =>
-    match.matchName?.toLowerCase().includes(searchQuery.toLowerCase())
+    match.date?.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   if (loading) {
@@ -51,7 +51,7 @@ function AllMatchCardPage() {
               <h1>Search</h1>
             </div>
             <input
-              placeholder="Search Match like ODI , T20"
+              placeholder="Search Match With Dates"
               className="border border-gray-300 text-sm lg:px-4 w-64"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)} // Update search query
