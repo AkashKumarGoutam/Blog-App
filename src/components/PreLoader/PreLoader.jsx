@@ -1,6 +1,7 @@
 import React from "react";
 import "./PreLoader.css";
 import logo from "../../assets/Blue and Red Illustrative Cricket Club Sports Logo-2.png"
+import LoadingComponents from "../LoadingComponents";
 
 const PreLoader = () => {
   return (
@@ -8,7 +9,9 @@ const PreLoader = () => {
       <div className="svg-wrapper">
         {/* copy svg image and past it here */}
         <img src={logo} alt="logo" className="w-20 h-20"/>
-        <div className="loading-text">Loading...</div>
+        <div className="flex justify-center items-center my-2">
+        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500 border-solid"></div>
+      </div>
       </div>
     </div>
   );

@@ -49,7 +49,7 @@ function MatchCard({ match, onClick }) {
       </div>
 
       {/* Winning Status */}
-      <div className="text-center mt-2">
+      <div className="text-end mt-2">
         <h1 className="text-sm text-green-500 font-semibold">
           {match.winningStatus || "N/A"}
         </h1>

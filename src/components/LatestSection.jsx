@@ -3,6 +3,9 @@ import { getFirestore, collection, getDocs, query, orderBy, limit } from "fireba
 import { app } from "../firebase/Firebase";
 import { Link } from "react-router-dom";
 import LoadingComponents from "./LoadingComponents";
+import img1 from "../assets/Blue and Red Illustrative Cricket Club Sports Logo-3.png";
+import img2 from "../assets/Blue and Red Illustrative Cricket Club Sports Logo-2.png";
+import img3 from "../assets/Blue and Red Illustrative Cricket Club Sports Logo.png";
 
 function LatestSection() {
   const [latestPosts, setLatestPosts] = useState([]);
@@ -35,9 +38,7 @@ function LatestSection() {
   }, []);
 
   if (loading) {
-    return (
-      <LoadingComponents/>
-    );
+    return <LoadingComponents />;
   }
 
   return (
@@ -68,79 +69,50 @@ function LatestSection() {
                     </div>
                     <h3 className="text-xl font-bold mb-2">{post.title}</h3>
                     <p className="text-gray-600 mb-4">{post.description}</p>
-                    <div>
-                      {/* <img
-                        src={post.imageURL}
-                        alt="Post"
-                        className="rounded-lg max-h-40 mb-4 w-full"
-                      /> */}
-                    </div>
                     <div className="flex items-center justify-between">
-                      <div className="flex items-center">
-                        <span className="text-sm text-gray-500">
-                          Category : {post.category || "Uncategorized"}
-                        </span>
-                      </div>
-                      <Link to={`/particular-news-article/${post.id}`} className="text-blue-600 hover:text-blue-800">Read More →</Link>
+                      <span className="text-sm text-gray-500">
+                        Category: {post.category || "Uncategorized"}
+                      </span>
+                      <Link
+                        to={`/particular-news-article/${post.id}`}
+                        className="text-blue-600 hover:text-blue-800"
+                      >
+                        Read More →
+                      </Link>
                     </div>
                   </div>
                 </article>
               ))}
             </div>
 
-            {/* Live Updates Column */}
-            <div className="animate__animated animate__fadeInRight">
-              <div className="bg-gray-50 rounded-xl p-6">
-                <h3 className="text-xl font-bold mb-6">Live Updates</h3>
-
-                <div className="space-y-4">
-                  {/* Live Update Item */}
-                  <div className="bg-white p-4 rounded-lg shadow">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm font-semibold text-red-600">LIVE</span>
-                      <span className="text-xs text-gray-500">Updated now</span>
-                    </div>
-                    <p className="font-medium">IND vs AUS - Test Match Day 3</p>
-                    <div className="mt-2 text-sm text-gray-600">
-                      Latest bowling figures: 5/45 (15 overs)
-                    </div>
-                  </div>
-
-                  {/* Recent Stats Updates */}
-                  <div className="space-y-4">
-                    <div className="border-l-4 border-blue-500 pl-4">
-                      <h4 className="font-semibold">Batting Milestone</h4>
-                      <p className="text-sm text-gray-600">
-                        Player reaches 10,000 ODI runs
-                      </p>
-                    </div>
-
-                    <div className="border-l-4 border-green-500 pl-4">
-                      <h4 className="font-semibold">Team Record</h4>
-                      <p className="text-sm text-gray-600">
-                        Highest T20 partnership record set
-                      </p>
-                    </div>
-
-                    <div className="border-l-4 border-purple-500 pl-4">
-                      <h4 className="font-semibold">Rankings Update</h4>
-                      <p className="text-sm text-gray-600">
-                        New World No.1 Test Bowler
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-6">
-                  <button className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300">
-                    View All Updates
-                  </button>
-                </div>
+            {/* Image Carousel Column */}
+            <div className="relative my-4 overflow-hidden h-64">
+              <div className="flex absolute w-full h-full animate-scroll">
+                <img src={img1} alt="Image 1" className="h-64 w-auto rounded-lg mr-4" />
+                <img src={img2} alt="Image 2" className="h-64 w-auto rounded-lg mr-4" />
+                <img src={img3} alt="Image 3" className="h-64 w-auto rounded-lg mr-4" />
+                <img src={img1} alt="Image 4" className="h-64 w-auto rounded-lg mr-4" />
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      <style>
+        {`
+          @keyframes scroll {
+            0% {
+              transform: translateX(0);
+            }
+            100% {
+              transform: translateX(-100%);
+            }
+          }
+          .animate-scroll {
+            animation: scroll 20s linear infinite;
+          }
+        `}
+      </style>
     </div>
   );
 }
