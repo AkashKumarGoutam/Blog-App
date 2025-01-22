@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Login from './pages/admin/Login';
 import Dashboard from './pages/admin/Dashboard';
@@ -25,9 +25,26 @@ import ParticularNewsArticles from './pages/ParticularNewsArticles.jsx';
 import ScrollToTop from './components/ScrollToTop.jsx';
 import AddFlagImageURL from './pages/admin/AddFlagImageURL.jsx';
 import ContactPage from './components/ContactPage.jsx';
+import PreLoader from './components/PreLoader/PreLoader.jsx';
 
 const App = () => {
-  return (
+  // loader state
+  const [isLoading, setIsLoading] = useState(true);
+
+   // Let create async method to fetch fake data
+   useEffect(() => {
+    const fakeDataFetch = () => {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 2000);
+    };
+
+    fakeDataFetch();
+  }, []);
+  
+  return isLoading ? (
+    <PreLoader />
+  ) : ( 
     <>
       <Navbar />
       <AllMatches/>
@@ -76,7 +93,7 @@ const App = () => {
       </Routes>
       <Footer/>
     </>
-  );
+  )
 };
 
 export default App;
