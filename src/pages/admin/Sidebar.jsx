@@ -28,7 +28,7 @@ function Sidebar() {
 
       {/* Sidebar Menu */}
       <div
-        className={`fixed top-0 left-0 h-full w-[70%] bg-gray-100 p-4 transform transition-transform duration-300 ease-in-out 
+        className={`fixed top-0 left-0 h-full w-[70%] bg-gray-900 p-4 transform transition-transform duration-300 ease-in-out 
           ${isOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0 md:relative md:w-full md:block`}
       >
         {/* Close Icon at the Top */}
@@ -48,7 +48,7 @@ function Sidebar() {
               to="all-posts"
               onClick={closeSidebar} // Close sidebar when clicked
               className={({ isActive }) =>
-                isActive ? 'text-blue-500 font-bold' : 'text-gray-500'
+                isActive ? 'text-blue-500 font-bold' : 'text-white text-xl my-4'
               }
             >
               All Posts
@@ -60,7 +60,7 @@ function Sidebar() {
               to="all-category"
               onClick={closeSidebar} // Close sidebar when clicked
               className={({ isActive }) =>
-                isActive ? 'text-blue-500 font-bold' : 'text-gray-500'
+                isActive ? 'text-blue-500 font-bold' : 'text-white text-xl my-4'
               }
             >
               All Category
@@ -72,7 +72,7 @@ function Sidebar() {
               to="add-posts"
               onClick={closeSidebar} // Close sidebar when clicked
               className={({ isActive }) =>
-                isActive ? 'text-blue-500 font-bold' : 'text-gray-500'
+                isActive ? 'text-blue-500 font-bold' : 'text-white text-xl my-4'
               }
             >
               Add Post
@@ -84,7 +84,7 @@ function Sidebar() {
               to="add-category"
               onClick={closeSidebar} // Close sidebar when clicked
               className={({ isActive }) =>
-                isActive ? 'text-blue-500 font-bold' : 'text-gray-500'
+                isActive ? 'text-blue-500 font-bold' : 'text-white text-xl my-4'
               }
             >
               Add Category
@@ -96,7 +96,7 @@ function Sidebar() {
               to="add-matches"
               onClick={closeSidebar} // Close sidebar when clicked
               className={({ isActive }) =>
-                isActive ? 'text-blue-500 font-bold' : 'text-gray-500'
+                isActive ? 'text-blue-500 font-bold' : 'text-white text-xl my-4'
               }
             >
               Add Matches
@@ -108,7 +108,7 @@ function Sidebar() {
               to="add-match-posts"
               onClick={closeSidebar} // Close sidebar when clicked
               className={({ isActive }) =>
-                isActive ? 'text-blue-500 font-bold' : 'text-gray-500'
+                isActive ? 'text-blue-500 font-bold' : 'text-white text-xl my-4'
               }
             >
               Add Matches post
@@ -120,7 +120,7 @@ function Sidebar() {
               to="add-flag-imageURL"
               onClick={closeSidebar} // Close sidebar when clicked
               className={({ isActive }) =>
-                isActive ? 'text-blue-500 font-bold' : 'text-gray-500'
+                isActive ? 'text-blue-500 font-bold' : 'text-white text-xl my-4'
               }
             >
               Add Flag imageURL

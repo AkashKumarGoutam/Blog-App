@@ -185,7 +185,10 @@ const AddMatchCards = () => {
             key={match.id}
             className="bg-white shadow-md rounded-lg p-4 border border-gray-200"
           >
-            <h3 className="text-lg font-semibold">{match.matchTitle}</h3>
+            <div className="flex justify-between items-center">
+            <h3 className="text-lg font-semibold">{match.battleName}</h3>
+            <button className="text-sm bg-blue-800 px-2 py-1 rounded-lg text-white">Edit</button>
+            </div>
             <p className="text-sm text-gray-600">{match.stadium}</p>
             <p className="text-sm text-gray-600">{match.date}</p>
             <div className="flex items-center mt-2 space-x-4">
@@ -209,7 +212,10 @@ const AddMatchCards = () => {
             <p className="text-sm font-semibold mt-2">
               {match.winningStatus || "Status not available"}
             </p>
+            <div className="flex justify-between items-center">
             <p className="text-sm text-gray-700 mt-2">{match.matchName}</p>
+            <button className="text-sm bg-red-500 px-2 py-1 rounded-lg text-white">Delete</button>
+            </div>
           </div>
         ))}
       </div>

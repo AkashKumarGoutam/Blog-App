@@ -21,10 +21,10 @@ const Navbar = () => {
     <div className="bg-black">
       <div className="flex items-center justify-between h-16 px-8">
         <div className="flex items-center">
-          <div className="flex items-center gap-2 flex-shrink-0">
+          <Link to="/" className="flex items-center gap-2 flex-shrink-0">
             <img src={logo} className="w-16" alt="Logo" />
             <span className="text-white text-xl font-bold">Stump Stat</span>
-          </div>
+          </Link>
         </div>
         <div className="hidden md:block">
           <div className="ml-10 flex items-baseline space-x-4">
@@ -54,7 +54,7 @@ const Navbar = () => {
             </Link>
             
             <Link
-              to="/"
+              to="/statistics"
               className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
             >
               Statistics

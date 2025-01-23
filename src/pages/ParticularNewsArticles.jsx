@@ -4,6 +4,7 @@ import { getFirestore, doc, getDoc } from 'firebase/firestore';
 import { app } from '../firebase/Firebase'; // Import Firebase configuration
 import LoadingComponents from '../components/LoadingComponents';
 import { format } from 'date-fns'; // For date formatting
+import adsImage from "../assets/Stump Stat-5.png"
 
 function ParticularNewsArticles() {
   const { id } = useParams(); // Get the dynamic parameter from the URL
@@ -57,10 +58,11 @@ function ParticularNewsArticles() {
   }
 
   return (
-    <div>
+    <div className='lg:flex lg:gap-8 p-12'>
+      <div>
       <h1 className="py-3 font-semibold lg:text-2xl flex justify-center">News Articles</h1>
-      <div className="max-w-6xl lg:flex justify-between mx-auto p-6 bg-gray-100 rounded-lg shadow-md my-10">
-        <div className="lg:w-96">
+      <div className="max-w-3xl lg:flex flex-col gap-6 items-center justify-between mx-auto p-2 bg-gray-100 rounded-lg shadow-md my-">
+        <div className="">
           {/* Article Image */}
           <img
             src={article?.imageURL || 'https://via.placeholder.com/600x300'}
@@ -68,7 +70,7 @@ function ParticularNewsArticles() {
             className="w-full h-full object-cover rounded-md"
           />
         </div>
-        <div className="w-[60%]">
+        <div className="">
           {/* Category */}
           <p className="text-black text-sm uppercase font-semibold tracking-wide mb-2">
             Category: {article?.category || 'Uncategorized'}
@@ -97,6 +99,10 @@ function ParticularNewsArticles() {
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    <div className='pt-32 lg:w-[30%] flex justify-center'>
+        <img src={adsImage}/>
       </div>
     </div>
   );

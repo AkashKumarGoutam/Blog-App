@@ -35,7 +35,7 @@ function MatchPosts() {
 
   return (
     <div className="p-6 px-12">
-      <h2 className="text-xl font-bold my-6">Match Posts List</h2>
+      <h2 className="lg:text-3xl font-bold my-2 flex justify-center">Match Posts List</h2>
       {loading ? (
         <LoadingComponents/>
       ) : matchPosts.length === 0 ? (

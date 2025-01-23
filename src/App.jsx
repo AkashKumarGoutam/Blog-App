@@ -26,6 +26,7 @@ import ScrollToTop from './components/ScrollToTop.jsx';
 import AddFlagImageURL from './pages/admin/AddFlagImageURL.jsx';
 import ContactPage from './components/ContactPage.jsx';
 import PreLoader from './components/PreLoader/PreLoader.jsx';
+import StatAnalysis from './pages/StatAnalysis.jsx';
 
 const App = () => {
   // loader state
@@ -88,6 +89,7 @@ const App = () => {
         <Route path="/match_score" element={<MatchScorePage />} />
         <Route path="/match-post/:slug" element={< MatchPosts/>} />
         <Route path="/all-match-card" element={< AllMatchCardPage/>} />
+        <Route path="//statistics" element={< StatAnalysis/>} />
 
 
       </Routes>

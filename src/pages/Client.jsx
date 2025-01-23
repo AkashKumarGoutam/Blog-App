@@ -12,7 +12,7 @@ function Client() {
         <div className="flex justify-center">
           <img
             src={banner}
-            className="w-full sm:h-32 md:h-32 lg:h-64"
+            className="w-full sm:h-32 md:h-32 lg:h-40"
             alt="Banner"
           />
         </div>

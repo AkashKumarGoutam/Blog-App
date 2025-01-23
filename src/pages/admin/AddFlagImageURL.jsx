@@ -90,11 +90,13 @@ function AddFlagImageURL() {
           {flags.map((flag) => (
             <div
               key={flag.id}
-              className="flex gap-4 items-center border-2 border-gray-200 rounded-lg p-3 mt-2"
+              className="flex w-64 justify-around items-center border-2 border-gray-200 rounded-lg p-3 mt-2"
             >
               <img src={flag.url} alt={flag.name} className=" w-6 h-6 rounded-full" />
 
               <h1 className="font-semibold"> {flag.name}</h1>
+              <button className="text-sm bg-red-500 px-2 py-1 rounded-lg text-white">Delete</button>
+
             </div>
           ))}
         </div>

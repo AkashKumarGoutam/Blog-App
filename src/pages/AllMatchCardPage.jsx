@@ -44,8 +44,8 @@ function AllMatchCardPage() {
   return (
     <>
       <div className='bg-gray-300 '>
-        <div className="lg:flex lg:justify-between lg:px-12 px-10 pt-20 py-4">
-          <h1 className="font-semibold py-3 text-xl ">All Matches</h1>
+        <div className="lg:flex lg:justify-between lg:px-12 px-10 py-6">
+          <h1 className="font-semibold py-3 lg:text-3xl ">All Matches</h1>
           <div className="flex">
             <div className="bg-indigo-600 px-2 lg:py-1 py-3 text-gray-100 flex justify-center items-center">
               <h1>Search</h1>
@@ -62,10 +62,11 @@ function AllMatchCardPage() {
           {filteredMatchCards.map((match) => (
             <div
               key={match.id}
-              className="bg-white border border-black hover:shadow-indigo-400 cursor-pointer text-black rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 w-[90%] h-60 mx-auto my-6 p-4"
+              className="bg-white hover:shadow-gray-600 shadow-gray-400 cursor-pointer text-black rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 w-[90%] h-58 mx-auto my-2 p-2"
             >
               <Link to={`/match-post/${match.slug}`}>
                 {/* Match Info */}
+                <h1 className='font-semibold'>{match.battleName}</h1>
                 <div className="flex w-64 justify-between items-center mb-4">
                   <div className="flex items-center gap-2 text-xs">
                     <span className="text-red-800 font-medium">
@@ -95,7 +96,7 @@ function AllMatchCardPage() {
                     <img
                       src={match.teamAImage || "https://via.placeholder.com/40"}
                       alt="Team A"
-                      className="w-12 h-12 rounded-full border border-gray-300"
+                      className="w-8 h-8 rounded-full border border-gray-300"
                     />
                     <h1 className="text-sm font-medium">
                       {match.teamA || "Team A"}
@@ -106,7 +107,7 @@ function AllMatchCardPage() {
                     <img
                       src={match.teamBImage || "https://via.placeholder.com/40"}
                       alt="Team B"
-                      className="w-12 h-12 rounded-full border border-gray-300"
+                      className="w-8 h-8 rounded-full border border-gray-300"
                     />
                     <h1 className="text-sm font-medium">
                       {match.teamB || "Team B"}
@@ -115,7 +116,7 @@ function AllMatchCardPage() {
                 </div>
 
                 {/* Winning Status */}
-                <div className="text-center mt-4">
+                <div className="text-center mt-2">
                   <h1 className="text-sm text-green-500 font-semibold">
                     {match.winningStatus || "N/A"}
                   </h1>

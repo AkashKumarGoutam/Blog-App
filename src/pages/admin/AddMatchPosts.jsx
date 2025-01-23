@@ -203,6 +203,10 @@ const AddMatchPosts = () => {
               className="text-sm text-gray-700 mt-2"
               dangerouslySetInnerHTML={{ __html: post.description }}
             ></div>
+            <div className="flex justify-between items-center">
+            <button className="text-sm bg-blue-800 px-2 py-1 rounded-lg text-white">Edit</button>
+            <button className="text-sm bg-red-500 px-2 py-1 rounded-lg text-white">Delete</button>
+            </div>
           </div>
         ))}
       </div>
