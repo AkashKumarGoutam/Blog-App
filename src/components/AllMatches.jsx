@@ -23,7 +23,7 @@ function AllMatches() {
 
         // Sort by date (ascending)
         const sortedMatches = matches.sort((a, b) => 
-          new Date(a.date) - new Date(b.date)
+          new Date(b.date) - new Date(a.date)
         );
 
         setMatchCards(sortedMatches);

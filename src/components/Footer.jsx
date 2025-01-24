@@ -35,7 +35,8 @@ function Footer() {
                         <li><Link to="/all-match-card" className="hover:text-white transition duration-300">All Match Cards</Link></li>
                         <li><Link to="/all_news_articles" className="hover:text-white transition duration-300">All News Articles</Link></li>
                         <li><Link to="/about_us" className="hover:text-white transition duration-300">About Us</Link></li>
-                        <li><Link to="/" className="hover:text-white transition duration-300">Statistics</Link></li>
+                        <li><Link to="/statistics" className="hover:text-white transition duration-300">Statistics</Link></li>
+                        <li><Link to="/contact-us" className="hover:text-white transition duration-300">Contact Us</Link></li>
                     </ul>
                 </div>
 

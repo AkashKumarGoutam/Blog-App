@@ -3,9 +3,7 @@ import { getFirestore, collection, getDocs, query, orderBy, limit } from "fireba
 import { app } from "../firebase/Firebase";
 import { Link } from "react-router-dom";
 import LoadingComponents from "./LoadingComponents";
-import img1 from "../assets/Blue and Red Illustrative Cricket Club Sports Logo-3.png";
-import img2 from "../assets/Blue and Red Illustrative Cricket Club Sports Logo-2.png";
-import img3 from "../assets/Blue and Red Illustrative Cricket Club Sports Logo.png";
+import img4 from "../assets/Ads.png";
 
 function LatestSection() {
   const [latestPosts, setLatestPosts] = useState([]);
@@ -86,12 +84,13 @@ function LatestSection() {
             </div>
 
             {/* Image Carousel Column */}
-            <div className="relative my-4 overflow-hidden h-64">
+            <div className="relative mb-96 lg:mb-0 l overflow-hidden h-full ">
+              <h1 className="flex justify-center text-2xl py-4 font-semibold underline">Highlights</h1>
               <div className="flex absolute w-full h-full animate-scroll">
-                <img src={img1} alt="Image 1" className="h-64 w-auto rounded-lg mr-4" />
-                <img src={img2} alt="Image 2" className="h-64 w-auto rounded-lg mr-4" />
-                <img src={img3} alt="Image 3" className="h-64 w-auto rounded-lg mr-4" />
-                <img src={img1} alt="Image 4" className="h-64 w-auto rounded-lg mr-4" />
+                <img src={img4} alt="Image 1" className="h-96 w-auto rounded-lg mr-4" />
+                <img src={img4} alt="Image 2" className="h-96 w-auto rounded-lg mr-4" />
+                <img src={img4} alt="Image 3" className="h-96 w-auto rounded-lg mr-4" />
+                <img src={img4} alt="Image 4" className="h-96 w-auto rounded-lg mr-4" />
               </div>
             </div>
           </div>
