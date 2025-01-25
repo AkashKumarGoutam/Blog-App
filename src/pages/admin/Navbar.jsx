@@ -139,11 +139,11 @@ const Navbar = () => {
             Statistics
           </Link>
           <Link
-            to="/newsletter"
+            to="/contact-us"
             className="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium"
             onClick={closeMenu} // Close menu on click
           >
-            Newsletter
+            Contact Us
           </Link>
         </div>
       </div>

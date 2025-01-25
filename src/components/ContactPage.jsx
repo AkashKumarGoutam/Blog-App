@@ -22,6 +22,10 @@ function ContactPage() {
               Reach out to us for any inquiries or support.
             </p>
             <ul className="mt-4 space-y-3">
+            <li className="flex items-center">
+                <span className="w-6 h-6 mr-3 text-blue-600">👨🏻‍🎓</span>
+                <span>Akash Kumar Goutam</span>
+              </li>
               <li className="flex items-center">
                 <span className="w-6 h-6 mr-3 text-blue-600">📍</span>
                 <span>Alpha 2 Main Market , Greater Noida , Uttar Pradesh , 201310</span>
