@@ -134,6 +134,7 @@ function AllMatches() {
         )}
 
         {/* Indicators */}
+        <div className="hidden lg:block">
         <div className="flex justify-center mt-4">
           {Array.from({ length: Math.max(matchCards.length - cardsToShow + 1, 0) }).map(
             (_, index) => (
@@ -148,6 +149,7 @@ function AllMatches() {
               ></button>
             )
           )}
+        </div>
         </div>
       </div>
     </div>

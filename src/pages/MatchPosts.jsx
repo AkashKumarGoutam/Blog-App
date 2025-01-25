@@ -34,7 +34,7 @@ function MatchPosts() {
   }, [db, slug]);
 
   return (
-    <div className="p-6 px-12">
+    <div className="bg-black p-6 px-12">
       <h2 className="lg:text-3xl font-bold my-2 flex justify-center">Match Posts List</h2>
       {loading ? (
         <LoadingComponents/>

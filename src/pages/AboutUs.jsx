@@ -17,13 +17,13 @@ function AboutUs() {
   }
 
   return (
-    <div className="bg-gradient-to-b from-blue-50 via-white to-gray-100 min-h-screen px-6 py-10">
+    <div className="bg-black text-white from-blue-50 via-white to-gray-100 min-h-screen px-6 py-10">
       {/* Hero Section */}
       <div className="text-center">
-        <h1 className="text-5xl font-extrabold text-black mb-4">
+        <h1 className="text-5xl font-extrabold mb-4">
           About Stump Stat
         </h1>
-        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+        <p className="text-lg text-gray-200 max-w-3xl mx-auto">
           Dive into the world of cricket with real-time scores, detailed stats, and the latest news. At Stump Stat, we bring cricket closer to you with cutting-edge technology and a passion for the game.
         </p>
       </div>
@@ -40,14 +40,14 @@ function AboutUs() {
             />
           </div>
           {/* Text Section */}
-          <div className="p-6 md:w-1/2">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">
+          <div className="bg-neutral-700 p-6 md:w-1/2">
+            <h2 className="text-3xl font-bold text-gray-200 mb-4">
               Why Choose Us?
             </h2>
-            <p className="text-gray-600 mb-4">
+            <p className="text-gray-200 mb-4">
               We understand your love for cricket and aim to enhance your experience by offering:
             </p>
-            <ul className="space-y-3">
+            <ul className=" space-y-3">
               <li className="flex items-center">
                 <span className="text-blue-600 text-xl mr-2">✔</span>
                 <span>Live match scores updated in real-time.</span>
@@ -71,10 +71,10 @@ function AboutUs() {
 
       {/* Technology Section */}
       <div className="mt-16 text-center">
-        <h2 className="text-3xl font-bold text-gray-800 mb-6">
+        <h2 className="text-3xl font-bold text-white mb-6">
           Powered by Modern Technology
         </h2>
-        <p className="text-gray-600 mb-6 max-w-3xl mx-auto">
+        <p className=" mb-6 max-w-3xl mx-auto">
           At Stump Stat, we leverage modern tools and technologies to deliver a fast, reliable, and engaging experience for all cricket fans.
         </p>
         <div className="flex flex-wrap justify-center gap-6">
@@ -95,10 +95,10 @@ function AboutUs() {
 
       {/* Footer Section */}
       <div className="mt-16 text-center">
-        <h3 className="text-xl text-gray-700 mb-4">
+        <h3 className="text-xl text-gray-300 mb-4">
           Join us and explore cricket like never before!
         </h3>
-        <p className="text-gray-500 text-sm">
+        <p className="text-yellow-500 text-sm">
           &copy; 2025 <span className="text-blue-600 font-semibold">Stump Stat</span>. All rights reserved.
         </p>
       </div>

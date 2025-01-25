@@ -44,7 +44,7 @@ function AllMatchCardPage() {
 
   return (
     <>
-      <div className="bg-gray-300">
+      <div className="bg-black text-white">
         <div className="lg:flex lg:justify-between lg:px-12 px-10 py-6">
           <h1 className="font-semibold py-3 lg:text-3xl">All Matches</h1>
           <div className="flex">

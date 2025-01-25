@@ -4,14 +4,14 @@ function MatchCard({ match, onClick }) {
   return (
     <div
       onClick={onClick}
-      className="bg-white cursor-pointer text-black rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 w-[97%] h-44 mx-auto p-4"
+      className="bg-neutral-700 cursor-pointer text-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 w-[97%] h-44 mx-auto p-4"
     >
       {/* Match Info */}
       <div className="flex w-48  justify-between items-center mb-1">
         <div className="flex items-center gap-2 text-xs">
-          <span className="text-red-800 font-medium">{match.date || "N/A"}</span>
-          <span className="text-gray-400">|</span>
-          <span className="text-yellow-700 font-semibold">
+          <span className="text-yellow-200 font-medium">{match.date || "N/A"}</span>
+          <span className="text-gray-100">|</span>
+          <span className="text-yellow-200 font-semibold">
             {match.matchName || "N/A"}
           </span>
           <img
@@ -24,7 +24,7 @@ function MatchCard({ match, onClick }) {
       </div>
 
       {/* Stadium Info */}
-      <h1 className="text-sm text-gray-600 mb-4">{match.stadium || "N/A"}</h1>
+      <h1 className="text-sm text-gray-100 mb-4">{match.stadium || "N/A"}</h1>
 
       {/* Teams Section */}
       <div className="flex flex-col gap-2">

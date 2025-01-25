@@ -42,7 +42,7 @@ function LatestSection() {
   return (
     <div>
       {/* Latest Section */}
-      <section id="latest" className="pt-6 bg-white">
+      <section id="latest" className="pt-6 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-center mb-6 animate__animated animate__fadeIn">
             Latest Articles
@@ -54,19 +54,19 @@ function LatestSection() {
               {latestPosts.map((post) => (
                 <article
                   key={post.id}
-                  className="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden"
+                  className="bg-gray-900 text-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden"
                 >
                   <div className="p-6">
                     <div className="flex justify-between items-center mb-4">
                       <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full">
                         Latest
                       </span>
-                      <span className="text-gray-500 text-sm">
+                      <span className="text-yellow-200 text-sm">
                         {new Date(post.createdAt.seconds * 1000).toLocaleString()}
                       </span>
                     </div>
                     <h3 className="text-xl font-bold mb-2">{post.title}</h3>
-                    <p className="text-gray-600 mb-4">{post.description}</p>
+                    <p className="text-white mb-4">{post.description}</p>
                     <div className="flex items-center justify-between">
                       <span className="text-sm text-gray-500">
                         Category: {post.category || "Uncategorized"}

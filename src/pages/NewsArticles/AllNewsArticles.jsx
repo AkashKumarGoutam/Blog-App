@@ -46,7 +46,7 @@ function AllNewsArticles() {
   };
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-black text-white hover:shadow-xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl font-bold text-center mb-12">All News Articles</h2>
 
@@ -54,22 +54,22 @@ function AllNewsArticles() {
           {newsArticles.map((article) => (
             <article
               key={article.id}
-              className="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden"
+              className="bg-neutral-700 text-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden"
             >
               <div className="p-6">
                 <div className="flex justify-between items-center mb-4">
                   <span className="bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full">
                     {article.category || "Uncategorized"}
                   </span>
-                  <span className="text-gray-500 text-xs">
+                  <span className="text-yellow-200 text-xs">
                     {new Date(article.createdAt.seconds * 1000).toLocaleString()}
                   </span>
                 </div>
                 <h3 className="text-lg font-bold mb-2">{article.title}</h3>
-                <p className="text-gray-600 mb-4 line-clamp-3">{article.description}</p>
+                <p className="text-gray-200 mb-4 line-clamp-3">{article.description}</p>
                 <button
                   onClick={() => handleGoToParticularNewsArticle(article.id)}
-                  className="text-blue-600 hover:text-blue-800"
+                  className="text-blue-300 font-bold hover:text-white"
                 >
                   Read More →
                 </button>
