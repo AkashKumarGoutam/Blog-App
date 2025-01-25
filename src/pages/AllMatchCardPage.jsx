@@ -67,17 +67,17 @@ function AllMatchCardPage() {
             filteredMatchCards.map((match) => (
               <div
                 key={match.id}
-                className="bg-white hover:shadow-gray-600 shadow-gray-400 cursor-pointer text-black rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 w-[90%] h-58 mx-auto my-2 p-2"
+                className="bg-neutral-700 text-white hover:shadow-gray-600 cursor-pointer rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 w-[90%] h-58 mx-auto my-2 p-2"
               >
                 <Link to={`/match-post/${match.slug}`}>
                   <h1 className="font-semibold">{match.battleName}</h1>
-                  <div className="flex w-64 justify-between items-center mb-4">
+                  <div className="flex w-64 justify-between items-center mb-1">
                     <div className="flex items-center gap-2 text-xs">
-                      <span className="text-red-800 font-medium">
+                      <span className="text-yellow-200 font-medium">
                         {match.date || "N/A"}
                       </span>
                       <span className="text-gray-400">|</span>
-                      <span className="text-yellow-700 font-semibold">
+                      <span className="text-yellow-200 font-semibold">
                         {match.matchName || "N/A"}
                       </span>
                       <img
@@ -87,10 +87,10 @@ function AllMatchCardPage() {
                       />
                     </div>
                   </div>
-                  <h1 className="text-sm text-gray-600 mb-4">
+                  <h1 className="text-sm text-gray-200 mb-1">
                     {match.stadium || "N/A"}
                   </h1>
-                  <div className="flex flex-col gap-4">
+                  <div className="flex flex-col gap-2">
                     <div className="flex items-center gap-4">
                       <img
                         src={match.teamAImage || "https://via.placeholder.com/40"}
