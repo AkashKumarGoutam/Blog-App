@@ -1,9 +1,7 @@
 import React from "react";
 import LatestSection from "../components/LatestSection";
 import banner from "../assets/Stump Stat-8.png";
-import img1 from "../assets/Blue and Red Illustrative Cricket Club Sports Logo-3.png";
 import img2 from "../assets/Blue and Red Illustrative Cricket Club Sports Logo-2.png";
-// import img3 from "../assets/Blue and Red Illustrative Cricket Club Sports Logo.png";
 
 function Client() {
   return (
@@ -44,7 +42,7 @@ function Client() {
             <div className="relative bg-neutral-00 p-6 rounded-lg shadow-xl transition duration-300">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="bg-gray-900 p-4 rounded-lg hover:bg-gray-800 transition duration-300">
-                  <h3 className="text-white font-semibold">Live Match</h3>
+                  <h3 className="text-white font-semibold">Live Stats</h3>
                   <p className="text-green-400">IND vs AUS</p>
                   <p className="text-gray-300 text-sm">1st Test - Day 2</p>
                 </div>
@@ -79,13 +77,7 @@ function Client() {
         </div>
         <LatestSection />
 
-
-
-
-
-
-
-        <div className=" bg-black py-28  max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className=" bg-black py-16  max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="text-center mb-12 animate__animated animate__fadeIn">
         <h2 className="text-3xl font-bold text-white mb-4">Cricket Statistics Hub</h2>
         <p className="text-gray-400">Comprehensive cricket statistics and rankings</p>
@@ -196,14 +188,14 @@ function Client() {
 
 
         {/* Image Carousel Column */}
-        <div className="relative py-2 bg-black overflow-hidden h-64">
+        {/* <div className="relative py-2 bg-black overflow-hidden h-64">
           <div className="flex absolute w-full h-full animate-scrol">
             <img src={img2} alt="Image 1" className="h-64 w-auto rounded-lg mr-4" />
             <img src={img2} alt="Image 2" className="h-64 w-auto rounded-lg mr-4" />
             <img src={img2} alt="Image 3" className="h-64 w-auto rounded-lg mr-4" />
             <img src={img2} alt="Image 4" className="h-64 w-auto rounded-lg mr-4" />
           </div>
-        </div>
+        </div> */}
 
 
 
@@ -214,7 +206,7 @@ function Client() {
 
     
 
-        <style>
+        {/* <style>
           {`
             @keyframes scrol {
               0% {
@@ -228,7 +220,7 @@ function Client() {
               animation: scrol 20s linear infinite;
             }
           `}
-        </style>
+        </style> */}
       </div>
     </>
   );

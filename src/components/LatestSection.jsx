@@ -42,9 +42,9 @@ function LatestSection() {
   return (
     <div>
       {/* Latest Section */}
-      <section id="latest" className="pt-6 bg-black">
+      <section id="latest" className="bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center mb-6 animate__animated animate__fadeIn">
+          <h2 className="text-4xl text-gray-400 font-bold text-center mb-6 animate__animated animate__fadeIn">
             Latest Articles
           </h2>
 
