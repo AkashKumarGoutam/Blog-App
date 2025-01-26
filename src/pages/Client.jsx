@@ -19,7 +19,7 @@ function Client() {
           </p>
           <div className="flex flex-wrap gap-4">
             <a href="#livescores" className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-full font-semibold transition duration-300 animate__animated animate__pulse animate__infinite">
-              Live Scores
+              Live Stats
             </a>
             <a href="#statistics" className="bg-neutral-700 hover:bg-neutral-600 text-white px-8 py-3 rounded-full font-semibold transition duration-300">
               View Statistics
@@ -38,7 +38,7 @@ function Client() {
           </div>
         </div>
         
-        <div className="lg:w-1/2 mt-12 lg:mt-0 animate__animated animate__fadeInRight">
+        <div className="lg:w-1/2 w-96 mt-12 lg:mt-0 animate__animated animate__fadeInRight">
           <div className="relative">
             <div className="absolute -inset-1 bg-gradient-to-r from-green-600 to-blue-600 rounded-lg blur opacity-30"></div>
             <div className="relative bg-neutral-00 p-6 rounded-lg shadow-xl transition duration-300">
@@ -73,7 +73,7 @@ function Client() {
         <div className="flex justify-center">
           <img
             src={banner}
-            className="w-full sm:h-48 md:h-48 lg:h-48"
+            className="w-full sm:h-full md:h-48 lg:h-48"
             alt="Banner"
           />
         </div>

@@ -98,7 +98,7 @@ function AllMatches() {
                 <div
                   key={match.id}
                   style={{ flex: `0 0 ${100 / cardsToShow}%` }}
-                  className={`px-5 lg:px-0 ${
+                  className={`px-1 lg:px-0 ${
                     isMobile ? "inline-block w-[calc(100%-10px)]" : ""
                   }`}
                 >
