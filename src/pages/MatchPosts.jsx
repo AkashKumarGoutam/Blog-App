@@ -34,7 +34,7 @@ function MatchPosts() {
   }, [db, slug]);
 
   return (
-    <div className="bg-black p-6 px-12">
+    <div className="bg-black text-white p-6 px-12">
       <h2 className="lg:text-3xl font-bold my-2 flex justify-center">Match Posts List</h2>
       {loading ? (
         <LoadingComponents/>
@@ -45,35 +45,35 @@ function MatchPosts() {
           {matchPosts.map((post) => (
             <div
               key={post.id}
-              className="bg-white shadow-md rounded-lg p-4 border border-gray-200"
+              className="bg-gray-900 text-gray-200 shadow-md rounded-lg p-4 border border-gray-200"
             >
               <img
                 src={post.imageUrl || "https://via.placeholder.com/150"}
                 alt={post.title}
                 className="w-full h-40 object-cover mt-2 rounded-md"
               />
-              <h3 className="text-lg font-semibold mt-2">{post.title || "Untitled"}</h3>
-              <p className="text-sm text-gray-600">
-                <strong>Author:</strong> {post.author || "Unknown"}
+              <h3 className="text-lg text-white font-semibold mt-2">{post.title || "Untitled"}</h3>
+              <p className="text-xs text-gray-100">
+                <strong className="text-yellow-200">Author:</strong> {post.author || "Unknown"}
               </p>
-              <p className="text-sm text-gray-600">
-                <strong>Date of Post:</strong>{" "}
+              <p className="text-xs text-gray-100">
+                <strong className="text-yellow-200">Date of Post:</strong>{" "}
                 {post.dateOfPost
                   ? new Date(post.dateOfPost).toLocaleDateString()
                   : "N/A"}
               </p>
-              <p className="text-sm text-gray-600">
-                <strong>Date of Match:</strong>{" "}
+              <p className="text-xs text-gray-100">
+                <strong className="text-yellow-200">Date of Match:</strong>{" "}
                 {post.dateOfMatch
                   ? new Date(post.dateOfMatch).toLocaleDateString()
                   : "N/A"}
               </p>
-              <p className="text-sm text-gray-600">
-                <strong>Slug:</strong> {post.slug || "N/A"}
+              <p className="text-xs text-gray-100">
+                <strong className="text-yellow-200">Slug:</strong> {post.slug || "N/A"}
               </p>
               <hr className="my-2" />
               <div
-                className="text-sm text-gray-700 mt-2"
+                className="text-sm text-gray-900 mt-2"
                 dangerouslySetInnerHTML={{
                   __html: post.description || "No description available.",
                 }}

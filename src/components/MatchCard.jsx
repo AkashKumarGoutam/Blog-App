@@ -4,7 +4,7 @@ function MatchCard({ match, onClick }) {
   return (
     <div
       onClick={onClick}
-      className="bg-neutral-700 cursor-pointer text-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 w-[97%] h-44 mx-auto p-4"
+      className="bg-gray-900 cursor-pointer text-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 w-[97%] h-44 mx-auto p-4"
     >
       {/* Match Info */}
       <div className="flex w-48  justify-between items-center mb-1">

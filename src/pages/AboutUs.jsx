@@ -40,7 +40,7 @@ function AboutUs() {
             />
           </div>
           {/* Text Section */}
-          <div className="bg-neutral-700 p-6 md:w-1/2">
+          <div className="bg-gray-900 p-6 md:w-1/2">
             <h2 className="text-3xl font-bold text-gray-200 mb-4">
               Why Choose Us?
             </h2>
@@ -78,17 +78,17 @@ function AboutUs() {
           At Stump Stat, we leverage modern tools and technologies to deliver a fast, reliable, and engaging experience for all cricket fans.
         </p>
         <div className="flex flex-wrap justify-center gap-6">
-          <div className="bg-white shadow-md rounded-lg p-6 w-64 text-center">
+          <div className="bg-gray-900 shadow-md rounded-lg p-6 w-64 text-center">
             <h3 className="text-xl font-semibold text-blue-600 mb-2">React.js</h3>
-            <p className="text-gray-500">Dynamic and responsive UI for seamless interaction.</p>
+            <p className="text-gray-200">Dynamic and responsive UI for seamless interaction.</p>
           </div>
-          <div className="bg-white shadow-md rounded-lg p-6 w-64 text-center">
+          <div className="bg-gray-900 shadow-md rounded-lg p-6 w-64 text-center">
             <h3 className="text-xl font-semibold text-blue-600 mb-2">Tailwind CSS</h3>
-            <p className="text-gray-500">Beautiful, modern, and responsive design.</p>
+            <p className="text-gray-200">Beautiful, modern, and responsive design.</p>
           </div>
-          <div className="bg-white shadow-md rounded-lg p-6 w-64 text-center">
+          <div className="bg-gray-900 shadow-md rounded-lg p-6 w-64 text-center">
             <h3 className="text-xl font-semibold text-blue-600 mb-2">Real-Time APIs</h3>
-            <p className="text-gray-500">Instant updates for live matches and stats.</p>
+            <p className="text-gray-200">Instant updates for live matches and stats.</p>
           </div>
         </div>
       </div>

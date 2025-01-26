@@ -41,24 +41,24 @@ function Client() {
         <div className="lg:w-1/2 mt-12 lg:mt-0 animate__animated animate__fadeInRight">
           <div className="relative">
             <div className="absolute -inset-1 bg-gradient-to-r from-green-600 to-blue-600 rounded-lg blur opacity-30"></div>
-            <div className="relative bg-neutral-800 p-6 rounded-lg shadow-xl transition duration-300">
+            <div className="relative bg-neutral-00 p-6 rounded-lg shadow-xl transition duration-300">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="bg-neutral-700 p-4 rounded-lg">
+                <div className="bg-gray-900 p-4 rounded-lg hover:bg-gray-800 transition duration-300">
                   <h3 className="text-white font-semibold">Live Match</h3>
                   <p className="text-green-400">IND vs AUS</p>
                   <p className="text-gray-300 text-sm">1st Test - Day 2</p>
                 </div>
-                <div className="bg-neutral-700 p-4 rounded-lg">
+                <div className="bg-gray-900 p-4 rounded-lg hover:bg-gray-800 transition duration-300">
                   <h3 className="text-white font-semibold">Latest Stats</h3>
                   <p className="text-green-400">Player Rankings</p>
                   <p className="text-gray-300 text-sm">Updated hourly</p>
                 </div>
-                <div className="bg-neutral-700 p-4 rounded-lg">
+                <div className="bg-gray-900 p-4 rounded-lg hover:bg-gray-800 transition duration-300">
                   <h3 className="text-white font-semibold">Analysis</h3>
                   <p className="text-green-400">Match Predictions</p>
                   <p className="text-gray-300 text-sm">AI-powered insights</p>
                 </div>
-                <div className="bg-neutral-700 p-4 rounded-lg">
+                <div className="bg-gray-900 p-4 rounded-lg hover:bg-gray-800 transition duration-300">
                   <h3 className="text-white font-semibold">Articles</h3>
                   <p className="text-green-400">Expert Commentary</p>
                   <p className="text-gray-300 text-sm">Daily updates</p>
@@ -93,7 +93,7 @@ function Client() {
 
       {/* <!-- Stats Categories --> */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-        <div className="bg-neutral-800 rounded-lg p-6 hover:transform hover:scale-105 transition duration-300 animate__animated animate__fadeInUp">
+        <div className="bg-gray-900 rounded-lg p-6 hover:transform hover:scale-105 transition duration-300 animate__animated animate__fadeInUp">
           <div className="stats-tab active cursor-pointer" data-tab="batting">
             <h3 className="text-xl font-semibold text-white mb-4">Batting Stats</h3>
             <div className="space-y-4">
@@ -113,7 +113,7 @@ function Client() {
           </div>
         </div>
 
-        <div className="bg-neutral-800 rounded-lg p-6 hover:transform hover:scale-105 transition duration-300 animate__animated animate__fadeInUp">
+        <div className="bg-gray-900 rounded-lg p-6 hover:transform hover:scale-105 transition duration-300 animate__animated animate__fadeInUp">
           <div className="stats-tab" data-tab="bowling">
             <h3 className="text-xl font-semibold text-white mb-4">Bowling Stats</h3>
             <div className="space-y-4">
@@ -133,7 +133,7 @@ function Client() {
           </div>
         </div>
 
-        <div className="bg-neutral-800 rounded-lg p-6 hover:transform hover:scale-105 transition duration-300 animate__animated animate__fadeInUp" >
+        <div className="bg-gray-900 rounded-lg p-6 hover:transform hover:scale-105 transition duration-300 animate__animated animate__fadeInUp" >
           <div className="stats-tab" data-tab="teams">
             <h3 className="text-xl font-semibold text-white mb-4">Team Rankings</h3>
             <div className="space-y-4">
@@ -171,19 +171,19 @@ function Client() {
 
       {/* <!-- Quick Stats Cards --> */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div className="bg-neutral-800 rounded-lg p-4 text-center">
+        <div className="bg-gray-900 rounded-lg p-4 text-center">
           <div className="text-3xl font-bold text-green-500">267</div>
           <div className="text-gray-400 text-sm">Highest Score</div>
         </div>
-        <div className="bg-neutral-800 rounded-lg p-4 text-center">
+        <div className="bg-gray-900 rounded-lg p-4 text-center">
           <div className="text-3xl font-bold text-green-500">10/74</div>
           <div className="text-gray-400 text-sm">Best Bowling</div>
         </div>
-        <div className="bg-neutral-800 rounded-lg p-4 text-center transition duration-300">
+        <div className="bg-gray-900 rounded-lg p-4 text-center transition duration-300">
           <div className="text-3xl font-bold text-green-500">264</div>
           <div className="text-gray-400 text-sm">Fastest Century</div>
         </div>
-        <div className="bg-neutral-800 rounded-lg p-4 text-center">
+        <div className="bg-gray-900 rounded-lg p-4 text-center">
           <div className="text-3xl font-bold text-green-500">952/6</div>
           <div className="text-gray-400 text-sm">Highest Team Score</div>
         </div>

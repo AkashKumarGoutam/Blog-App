@@ -67,7 +67,7 @@ function AllMatchCardPage() {
             filteredMatchCards.map((match) => (
               <div
                 key={match.id}
-                className="bg-neutral-700 text-white hover:shadow-gray-600 cursor-pointer rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 w-[90%] h-58 mx-auto my-2 p-2"
+                className="bg-gray-900 text-white hover:shadow-gray-600 cursor-pointer rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 w-[90%] h-58 mx-auto my-2 p-2"
               >
                 <Link to={`/match-post/${match.slug}`}>
                   <h1 className="font-semibold">{match.battleName}</h1>

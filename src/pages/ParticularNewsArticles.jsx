@@ -4,7 +4,7 @@ import { getFirestore, doc, getDoc } from 'firebase/firestore';
 import { app } from '../firebase/Firebase'; // Import Firebase configuration
 import LoadingComponents from '../components/LoadingComponents';
 import { format } from 'date-fns'; // For date formatting
-import adsImage from "../assets/Stump Stat-5.png"
+import adsImage from "../assets/Stump Stat-9.png"
 
 function ParticularNewsArticles() {
   const { id } = useParams(); // Get the dynamic parameter from the URL
@@ -58,10 +58,10 @@ function ParticularNewsArticles() {
   }
 
   return (
-    <div className='lg:flex lg:gap-8 p-12'>
+    <div className='lg:flex lg:gap-8 bg-black text-white p-12'>
       <div>
       <h1 className="py-3 font-semibold lg:text-2xl flex justify-center">News Articles</h1>
-      <div className="max-w-3xl lg:flex flex-col gap-6 items-center justify-between mx-auto p-2 bg-gray-100 rounded-lg shadow-md my-">
+      <div className="max-w-3xl bg-gray-900 lg:flex flex-col gap-6 items-center justify-between mx-auto p-2 text-white rounded-lg shadow-md my-">
         <div className="">
           {/* Article Image */}
           <img
@@ -72,22 +72,22 @@ function ParticularNewsArticles() {
         </div>
         <div className="">
           {/* Category */}
-          <p className="text-black text-sm uppercase font-semibold tracking-wide mb-2">
+          <p className="text-blue-700 text-sm uppercase font-semibold tracking-wide mb-2">
             Category: {article?.category || 'Uncategorized'}
           </p>
 
           {/* Title */}
-          <h1 className="lg:text-xl font-bold text-gray-800 mb-4 underline">
+          <h1 className="lg:text-xl font-bold text-gray-200 mb-4 underline">
             {article?.title || 'No Title'}
           </h1>
 
           {/* Description */}
-          <p className="text-gray-600 lg:text-lg mb-6">
+          <p className="text-gray-300 lg:text-lg mb-6">
             {article?.description || 'No Description Available'}
           </p>
 
           {/* Author and Date */}
-          <div className="flex justify-between items-center text-gray-500 text-sm mb-6">
+          <div className="flex justify-between items-center text-yellow-200 text-sm mb-6">
             <div>
               <strong>Author:</strong> {article?.author || 'Unknown'}
             </div>

@@ -54,7 +54,7 @@ function AllNewsArticles() {
           {newsArticles.map((article) => (
             <article
               key={article.id}
-              className="bg-neutral-700 text-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden"
+              className="bg-gray-900 text-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden"
             >
               <div className="p-6">
                 <div className="flex justify-between items-center mb-4">
