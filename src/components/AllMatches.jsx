@@ -3,6 +3,7 @@ import MatchCard from "./MatchCard";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 import { app } from "../firebase/Firebase";
 import { useNavigate } from "react-router-dom";
+import CardSimmerEffect from "./CardSimmerEffect";
 
 function AllMatches() {
   const [matchCards, setMatchCards] = useState([]);
@@ -73,87 +74,90 @@ function AllMatches() {
 
   return (
     <div className="bg-black py-2">
-      <div className="relative w-full max-w-6xl mx-auto">
-        {/* Card container */}
-        <div
-          className={`lg:flex overflow-hidden ${
-            isMobile ? "overflow-x-auto whitespace-nowrap scrollbar-hide" : ""
-          }`}
-        >
+      {matchCards.length === 0 ? (
+        <CardSimmerEffect />
+      ) : (
+        <div className="relative w-full max-w-6xl mx-auto">
+          {/* Card Container */}
           <div
-            className={`flex transition-transform duration-300 ease-in-out ${
-              isMobile ? "" : "relative"
+            className={`lg:flex overflow-hidden ${
+              isMobile ? "overflow-x-auto whitespace-nowrap scrollbar-hide" : ""
             }`}
-            style={
-              isMobile
-                ? {}
-                : { transform: `translateX(-${currentIndex * (100 / cardsToShow)}%)` }
-            }
           >
-            {matchCards.map((match) => (
-              <div
-                key={match.id}
-                style={{ flex: `0 0 ${100 / cardsToShow}%` }}
-                className={`px-5 lg:px-0 ${
-                  isMobile ? "inline-block w-[calc(100%-10px)]" : ""
+            <div
+              className={`flex transition-transform duration-300 ease-in-out ${
+                isMobile ? "" : "relative"
+              }`}
+              style={
+                isMobile
+                  ? {}
+                  : { transform: `translateX(-${currentIndex * (100 / cardsToShow)}%)` }
+              }
+            >
+              {matchCards.map((match) => (
+                <div
+                  key={match.id}
+                  style={{ flex: `0 0 ${100 / cardsToShow}%` }}
+                  className={`px-5 lg:px-0 ${
+                    isMobile ? "inline-block w-[calc(100%-10px)]" : ""
+                  }`}
+                >
+                  <MatchCard
+                    match={match}
+                    onClick={() => handleCardClick(match.slug)}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+  
+          {/* Navigation and Indicators */}
+          {!isMobile && (
+            <>
+              <button
+                className={`absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-800 hover:bg-gray-700 text-white px-3 py-2 rounded-full shadow-md focus:outline-none ${
+                  currentIndex === 0 ? "opacity-50 cursor-not-allowed" : ""
                 }`}
+                onClick={handlePrev}
+                disabled={currentIndex === 0}
               >
-                <MatchCard
-                  match={match}
-                  onClick={() => handleCardClick(match.slug)}
-                />
-              </div>
-            ))}
+                &larr;
+              </button>
+              <button
+                className={`absolute top-1/2 right-1 transform -translate-y-1/2 bg-gray-800 hover:bg-gray-700 text-white px-3 py-2 rounded-full shadow-md focus:outline-none ${
+                  currentIndex + cardsToShow >= matchCards.length
+                    ? "opacity-50 cursor-not-allowed"
+                    : ""
+                }`}
+                onClick={handleNext}
+                disabled={currentIndex + cardsToShow >= matchCards.length}
+              >
+                &rarr;
+              </button>
+            </>
+          )}
+          <div className="hidden lg:block">
+            <div className="flex justify-center mt-4">
+              {Array.from({ length: Math.max(matchCards.length - cardsToShow + 1, 0) }).map(
+                (_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentIndex(index)}
+                    className={`h-3 w-3 mx-1 rounded-full ${
+                      currentIndex === index
+                        ? "bg-gray-200"
+                        : "bg-gray-600 hover:bg-gray-500"
+                    }`}
+                  ></button>
+                )
+              )}
+            </div>
           </div>
         </div>
-
-        {/* Navigation buttons for larger screens */}
-        {!isMobile && (
-          <>
-            <button
-              className={`absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-800 hover:bg-gray-700 text-white px-3 py-2 rounded-full shadow-md focus:outline-none ${
-                currentIndex === 0 ? "opacity-50 cursor-not-allowed" : ""
-              }`}
-              onClick={handlePrev}
-              disabled={currentIndex === 0}
-            >
-              &larr;
-            </button>
-            <button
-              className={`absolute top-1/2 right-1 transform -translate-y-1/2 bg-gray-800 hover:bg-gray-700 text-white px-3 py-2 rounded-full shadow-md focus:outline-none ${
-                currentIndex + cardsToShow >= matchCards.length
-                  ? "opacity-50 cursor-not-allowed"
-                  : ""
-              }`}
-              onClick={handleNext}
-              disabled={currentIndex + cardsToShow >= matchCards.length}
-            >
-              &rarr;
-            </button>
-          </>
-        )}
-
-        {/* Indicators */}
-        <div className="hidden lg:block">
-        <div className="flex justify-center mt-4">
-          {Array.from({ length: Math.max(matchCards.length - cardsToShow + 1, 0) }).map(
-            (_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentIndex(index)}
-                className={`h-3 w-3 mx-1 rounded-full ${
-                  currentIndex === index
-                    ? "bg-gray-200"
-                    : "bg-gray-600 hover:bg-gray-500"
-                }`}
-              ></button>
-            )
-          )}
-        </div>
-        </div>
-      </div>
+      )}
     </div>
   );
+  
 }
 
 export default AllMatches;
