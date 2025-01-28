@@ -66,7 +66,12 @@ function LatestSection() {
                       </span>
                     </div>
                     <h3 className="text-xl font-bold mb-2">{post.title}</h3>
-                    <p className="text-white mb-4">{post.description}</p>
+                    <p
+                  className="text-gray-200 mb-4 line-clamp-3"
+                  dangerouslySetInnerHTML={{
+                    __html: post.description || "No description available.",
+                  }}
+                ></p>
                     <div className="flex items-center justify-between">
                       <span className="text-sm text-gray-500">
                         Category: {post.category || "Uncategorized"}
