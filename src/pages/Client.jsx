@@ -1,6 +1,7 @@
 import React from "react";
 import LatestSection from "../components/LatestSection";
 import banner from "../assets/Stump Stat-10.png";
+import { Link } from "react-router-dom";
 
 function Client() {
   return (
@@ -15,12 +16,12 @@ function Client() {
             Real-time scores, in-depth analysis, and comprehensive cricket statistics at your fingertips.
           </p>
           <div className="flex flex-wrap gap-4">
-            <a href="#livescores" className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-full font-semibold transition duration-300 animate__animated animate__pulse animate__infinite">
+            <Link to="/" className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-full font-semibold transition duration-300 animate__animated animate__pulse animate__infinite">
               Live Stats
-            </a>
-            <a href="#statistics" className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-3 rounded-full font-semibold transition duration-300">
+            </Link>
+            <Link to="/statistics" className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-3 rounded-full font-semibold transition duration-300">
               View Statistics
-            </a>
+            </Link>
           </div>
           <div className="flex items-center space-x-4 mt-8">
             <div className="flex items-center">
@@ -50,16 +51,16 @@ function Client() {
                   <p className="text-green-400">Player Rankings</p>
                   <p className="text-gray-300 text-sm">Updated hourly</p>
                 </div>
-                <div className="bg-gray-900 p-4 rounded-lg hover:bg-gray-800 transition duration-300">
+                <Link to="/statistics" className="bg-gray-900 p-4 rounded-lg hover:bg-gray-800 transition duration-300">
                   <h3 className="text-white font-semibold">Analysis</h3>
                   <p className="text-green-400">Match Predictions</p>
                   <p className="text-gray-300 text-sm">AI-powered insights</p>
-                </div>
-                <div className="bg-gray-900 p-4 rounded-lg hover:bg-gray-800 transition duration-300">
+                </Link>
+                <Link to="/all_news_articles" className="bg-gray-900 p-4 rounded-lg hover:bg-gray-800 transition duration-300">
                   <h3 className="text-white font-semibold">Articles</h3>
                   <p className="text-green-400">Expert Commentary</p>
                   <p className="text-gray-300 text-sm">Daily updates</p>
-                </div>
+                </Link>
               </div>
             </div>
           </div>
