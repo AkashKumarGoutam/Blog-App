@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,21 +15,24 @@ function Sidebar() {
   };
 
   return (
-    <div className='pt-16'>
+    <div className="">
       {/* Hamburger Icon (outside the sidebar) */}
       {!isOpen && (
-        <button 
+        <button
           className="p- md:hidden focus:outline-none"
           onClick={toggleSidebar}
         >
-          <span className="text-2xl font-bold">&#9776;</span> {/* Hamburger symbol */}
+          <span className="text-2xl font-bold">&#9776;</span>{" "}
+          {/* Hamburger symbol */}
         </button>
       )}
 
       {/* Sidebar Menu */}
       <div
-        className={`fixed top-0 left-0 h-full w-[70%] bg-gray-900 p-4 transform transition-transform duration-300 ease-in-out 
-          ${isOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0 md:relative md:w-full md:block`}
+        className={`fixed top-0 left-0 h-full w-[50%] bg-black p-4 transform transition-transform duration-300 ease-in-out 
+          ${
+            isOpen ? "translate-x-0" : "-translate-x-full"
+          } md:translate-x-0 md:relative md:w-full md:block`}
       >
         {/* Close Icon at the Top */}
         <div className="flex justify-end mb-4 md:hidden">
@@ -42,90 +45,84 @@ function Sidebar() {
         </div>
 
         {/* Nav Links */}
-        <div className='pt-8'>
-          <div>
+        <div className="pt-2">
+          <div className="bg-gray-900 hover:bg-gray-700 transition duration p-2 mt-2">
             <NavLink
-              to="all-posts"
+              to="all-articles"
               onClick={closeSidebar} // Close sidebar when clicked
               className={({ isActive }) =>
-                isActive ? 'text-blue-500 font-bold' : 'text-white text-xl my-4'
+                isActive ? "text-blue-500 font-bold" : "text-white text-xl my-4"
               }
             >
-              All Posts
+              All Articles
             </NavLink>
-            <hr />
           </div>
-          <div>
+          <div className="bg-gray-900 hover:bg-gray-700 transition duration p-2 mt-2">
+            <NavLink
+              to="add-articles"
+              onClick={closeSidebar} // Close sidebar when clicked
+              className={({ isActive }) =>
+                isActive ? "text-blue-500 font-bold" : "text-white text-xl my-4"
+              }
+            >
+              Add Articles
+            </NavLink>
+          </div>
+          <div className="bg-gray-900 hover:bg-gray-700 transition duration p-2 mt-2">
             <NavLink
               to="all-category"
               onClick={closeSidebar} // Close sidebar when clicked
               className={({ isActive }) =>
-                isActive ? 'text-blue-500 font-bold' : 'text-white text-xl my-4'
+                isActive ? "text-blue-500 font-bold" : "text-white text-xl my-4"
               }
             >
               All Category
             </NavLink>
-            <hr />
           </div>
-          <div>
-            <NavLink
-              to="add-posts"
-              onClick={closeSidebar} // Close sidebar when clicked
-              className={({ isActive }) =>
-                isActive ? 'text-blue-500 font-bold' : 'text-white text-xl my-4'
-              }
-            >
-              Add Post
-            </NavLink>
-            <hr />
-          </div>
-          <div>
+
+          <div className="bg-gray-900 hover:bg-gray-700 transition duration p-2 mt-2">
             <NavLink
               to="add-category"
               onClick={closeSidebar} // Close sidebar when clicked
               className={({ isActive }) =>
-                isActive ? 'text-blue-500 font-bold' : 'text-white text-xl my-4'
+                isActive ? "text-blue-500 font-bold" : "text-white text-xl my-4"
               }
             >
               Add Category
             </NavLink>
-            <hr />
           </div>
-          <div>
+          <div className="bg-gray-900 hover:bg-gray-700 transition duration p-2 mt-2">
             <NavLink
-              to="add-matches"
+              to="create-match-card"
               onClick={closeSidebar} // Close sidebar when clicked
               className={({ isActive }) =>
-                isActive ? 'text-blue-500 font-bold' : 'text-white text-xl my-4'
+                isActive ? "text-blue-500 font-bold" : "text-white text-xl my-4"
               }
             >
-              Add Matches
+              Create Match Card
             </NavLink>
-            <hr />
           </div>
-          <div>
+          <div className="bg-gray-900 hover:bg-gray-700 transition duration p-2 mt-2">
             <NavLink
               to="add-match-posts"
               onClick={closeSidebar} // Close sidebar when clicked
               className={({ isActive }) =>
-                isActive ? 'text-blue-500 font-bold' : 'text-white text-xl my-4'
+                isActive ? "text-blue-500 font-bold" : "text-white text-xl my-4"
               }
             >
               Add Matches post
             </NavLink>
-            <hr />
           </div>
-          <div>
+          <div className="bg-gray-900 hover:bg-gray-700 transition duration p-2 mt-2">
             <NavLink
               to="add-flag-imageURL"
               onClick={closeSidebar} // Close sidebar when clicked
               className={({ isActive }) =>
-                isActive ? 'text-blue-500 font-bold' : 'text-white text-xl my-4'
+                isActive ? "text-blue-500 font-bold" : "text-white text-xl my-4"
               }
             >
               Add Flag imageURL
             </NavLink>
-            <hr />
           </div>
         </div>
       </div>

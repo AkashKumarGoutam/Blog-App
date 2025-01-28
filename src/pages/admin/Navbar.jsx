@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { getAuth } from "firebase/auth";
 import { app } from "../../firebase/Firebase";
 import { Link } from "react-router-dom";
-import logo from "../../assets/Blue and Red Illustrative Cricket Club Sports Logo-2.png";
+// import logo from "../../assets/Blue and Red Illustrative Cricket Club Sports Logo-2.png";
+import logo from "../../assets/logo.png";
 
 const auth = getAuth(app);
 
@@ -21,8 +22,8 @@ const Navbar = () => {
     <div className="bg-black">
       <div className="flex items-center justify-between h-16 px-8">
         <div className="flex items-center">
-          <Link to="/" className="flex items-center gap-2 flex-shrink-0">
-            <img src={logo} className="w-16" alt="Logo" />
+          <Link to="/" className="flex items-center flex-shrink-0">
+            <img src={logo} className="w-20" alt="Logo" />
             <span className="text-white text-xl font-bold">Stump Stat</span>
           </Link>
         </div>

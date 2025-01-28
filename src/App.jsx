@@ -69,11 +69,11 @@ const App = () => {
         >
           {/* Nested Routes */}
           <Route index element={<AllPost />} />
-          <Route path="all-posts" element={<AllPost />} />
+          <Route path="all-articles" element={<AllPost />} />
           <Route path="all-category" element={<AllCategory />} />
-          <Route path="add-posts" element={<AddPosts />} />
+          <Route path="add-articles" element={<AddPosts />} />
           <Route path="add-category" element={<AddCategory />} />
-          <Route path="add-matches" element={<AddMatches />} />
+          <Route path="create-match-card" element={<AddMatches />} />
           <Route path="add-match-posts" element={<AddMatchPosts />} />
           <Route path="add-flag-imageURL" element={<AddFlagImageURL />} />
         </Route>

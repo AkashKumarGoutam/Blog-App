@@ -36,9 +36,7 @@ function AllNewsArticles() {
   }, []);
 
   if (loading) {
-    return (
-      <LoadingComponents/>
-    );
+    return <LoadingComponents />;
   }
 
   const handleGoToParticularNewsArticle = (articleId) => {
@@ -62,11 +60,18 @@ function AllNewsArticles() {
                     {article.category || "Uncategorized"}
                   </span>
                   <span className="text-yellow-200 text-xs">
-                    {new Date(article.createdAt.seconds * 1000).toLocaleString()}
+                    {article.createdAt?.seconds
+                      ? new Date(article.createdAt.seconds * 1000).toLocaleString()
+                      : "Unknown Date"}
                   </span>
                 </div>
                 <h3 className="text-lg font-bold mb-2">{article.title}</h3>
-                <p className="text-gray-200 mb-4 line-clamp-3">{article.description}</p>
+                <p
+                  className="text-gray-200 mb-4 line-clamp-3"
+                  dangerouslySetInnerHTML={{
+                    __html: article.description || "No description available.",
+                  }}
+                ></p>
                 <button
                   onClick={() => handleGoToParticularNewsArticle(article.id)}
                   className="text-blue-300 font-bold hover:text-white"

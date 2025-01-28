@@ -7,7 +7,7 @@ function MatchCard({ match, onClick }) {
       className="bg-gray-900 cursor-pointer text-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 w-[97%] h-44 mx-auto p-4"
     >
       {/* Match Info */}
-      <div className="flex w-48  justify-between items-center mb-1">
+      <div className="flex w-48 justify-between items-center mb-1">
         <div className="flex items-center gap-2 text-xs">
           <span className="text-yellow-200 font-medium">{match.date || "N/A"}</span>
           <span className="text-gray-100">|</span>

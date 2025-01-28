@@ -77,15 +77,17 @@ function AddPosts() {
   };
 
   return (
-    <div className="flex lg:pt-24 flex-col items-center px-4">
+    <div className="flex lg:pt-2 flex-col items-center px-4">
       {/* Form Section */}
       <div className="flex flex-col border-2 border-gray-300 rounded-xl py-6 px-8 w-full lg:max-w-lg">
         <h1 className="text-2xl font-semibold text-center underline mb-6">
-          Add Posts
+          Add Article
         </h1>
         <div className="space-y-4">
           {/* Title Field */}
-          <TextField
+          <input
+          placeholder="enter title"
+          className="border-2 border-gray-300 rounded-sm py-2 px-4 w-full"
             id="title"
             label="Title"
             type="text"
@@ -106,6 +108,7 @@ function AddPosts() {
           >
           </TextareaAutosize> */}
           <ReactQuill
+          className="zIndex-0"
             theme="snow"
             value={description} 
             onChange={(value) => setDescription(value)} 
@@ -113,7 +116,10 @@ function AddPosts() {
           />
 
           {/* Author Field */}
-          <TextField
+          <input
+          placeholder="enter author"
+          className="border-2 border-gray-300 rounded-sm py-2 px-4 w-full"
+
             id="author"
             label="Author"
             type="text"
@@ -124,7 +130,9 @@ function AddPosts() {
           />
 
           {/* Image URL Field */}
-          <TextField
+          <input
+          placeholder="enter image URL"
+          className="border-2 border-gray-300 rounded-sm py-2 px-4 w-full"
             id="imageURL"
             label="Image URL"
             type="text"
@@ -164,7 +172,7 @@ function AddPosts() {
             className="bg-blue-600 text-white rounded-lg px-6 py-2 hover:bg-blue-700"
             disabled={loading}
           >
-            {loading ? "Adding Post..." : "Add Post"}
+            {loading ? "Adding Article..." : "Add Article"}
           </button>
         </div>
       </div>

@@ -6,7 +6,8 @@ function Dashboard() {
   return (
     <div className="flex flex-col md:flex-row">
       {/* Sidebar */}
-      <div className="md:w-[30%] flex flex-col p-4 bg-gray-900 text-white">
+      <div className="md:w-[30%] flex flex-col bg-black border border-gray-700 text-white">
+        <h1 className="text-2xl font-semibold flex justify-center">Admin</h1>
         <Sidebar />
       </div>
 

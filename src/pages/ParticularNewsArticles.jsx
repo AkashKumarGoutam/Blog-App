@@ -82,9 +82,13 @@ function ParticularNewsArticles() {
           </h1>
 
           {/* Description */}
-          <p className="text-gray-300 lg:text-lg mb-6">
-            {article?.description || 'No Description Available'}
-          </p>
+<div
+  className="text-gray-300 lg:text-lg mb-6"
+  dangerouslySetInnerHTML={{
+    __html: article?.description || "No description available.",
+  }}
+></div>
+
 
           {/* Author and Date */}
           <div className="flex justify-between items-center text-yellow-200 text-sm mb-6">
@@ -101,7 +105,7 @@ function ParticularNewsArticles() {
         </div>
       </div>
     </div>
-    <div className='pt-32 lg:w-[30%] flex justify-center'>
+    <div className='pt-32 lg:w-[30%] h-full flex justify-center'>
         <img src={adsImage}/>
       </div>
     </div>

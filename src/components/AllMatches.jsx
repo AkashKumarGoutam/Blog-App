@@ -40,13 +40,13 @@ function AllMatches() {
     const updateView = () => {
       setIsMobile(window.innerWidth < 768); // Mobile view if screen width < 768px
       if (window.innerWidth < 640) {
-        setCardsToShow(3);
+        setCardsToShow(2);
       } else if (window.innerWidth < 1024) {
-        setCardsToShow(3);
+        setCardsToShow(4);
       } else if (window.innerWidth < 1280) {
-        setCardsToShow(4);
+        setCardsToShow(5);
       } else {
-        setCardsToShow(4);
+        setCardsToShow(6);
       }
     };
 

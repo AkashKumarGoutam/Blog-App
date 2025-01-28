@@ -60,7 +60,7 @@ function AddCategory() {
   }, []);
 
   return (
-    <div className="flex lg:pt-24 justify-center items-center ">
+    <div className="flex lg:pt-2 justify-center items-center ">
       <div className="flex flex-col border-2 border-gray-300 rounded-xl py-4 px-12">
         <h1 className="text-xl font-semibold flex justify-center underline py-4">
           Add Category
@@ -86,10 +86,11 @@ function AddCategory() {
         </div>
 
         {/* Displaying categories dynamically */}
-        <div className="py-24">
+        <div className="py-2">
           <h1 className="text-xl font-semibold underline">
             All Categories
           </h1>
+          <div className="flex flex-wrap gap-2">
           {categories.map((cat) => (
             <div
               key={cat.id}
@@ -98,6 +99,7 @@ function AddCategory() {
               <h1>&rarr; {cat.name}</h1>
             </div>
           ))}
+          </div>
         </div>
       </div>
     </div>

@@ -52,7 +52,7 @@ function AddFlagImageURL() {
   }, []);
 
   return (
-    <div className="flex lg:pt-24 justify-center items-center">
+    <div className="flex lg:pt-2 justify-center items-center">
       <div className="flex flex-col border-2 border-gray-300 rounded-xl py-4 px-12">
         <h1 className="text-xl font-semibold flex justify-center underline py-4">
           Add Flag Image URL
@@ -83,14 +83,15 @@ function AddFlagImageURL() {
           </button>
         </div>
 
-        <div className="py-24">
+        <div className="py-2">
           <h1 className="text-xl font-semibold underline">
             All Flag Image Names
           </h1>
+          <div className="flex flex-wrap gap-2">
           {flags.map((flag) => (
             <div
               key={flag.id}
-              className="flex w-64 justify-around items-center border-2 border-gray-200 rounded-lg p-3 mt-2"
+              className="flex w-72 justify-around items-center border-2 border-gray-200 rounded-lg p-3 mt-2"
             >
               <img src={flag.url} alt={flag.name} className=" w-6 h-6 rounded-full" />
 
@@ -99,6 +100,7 @@ function AddFlagImageURL() {
 
             </div>
           ))}
+          </div>
         </div>
       </div>
     </div>
