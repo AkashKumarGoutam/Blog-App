@@ -24,7 +24,7 @@ function AboutUs() {
           About Stump Stat
         </h1>
         <p className="text-lg text-gray-200 max-w-3xl mx-auto">
-          Dive into the world of cricket with real-time scores, detailed stats, and the latest news. At Stump Stat, we bring cricket closer to you with cutting-edge technology and a passion for the game.
+        Dive into the world of cricket with real-time stats and the latest news. At Stump Stat, we bring cricket closer to you with cutting-edge technology and a passion for the game.
         </p>
       </div>
 
@@ -45,24 +45,26 @@ function AboutUs() {
               Why Choose Us?
             </h2>
             <p className="text-gray-200 mb-4">
-              We understand your love for cricket and aim to enhance your experience by offering:
+            We understand your love for cricket and aim to enhance your experience by offering:
             </p>
             <ul className=" space-y-3">
               <li className="flex items-center">
                 <span className="text-blue-600 text-xl mr-2">✔</span>
-                <span>Live match scores updated in real-time.</span>
+                <span>Real-time live cricket match stats.</span>
               </li>
               <li className="flex items-center">
                 <span className="text-blue-600 text-xl mr-2">✔</span>
-                <span>Comprehensive player and team statistics.</span>
+                <span>Statistical analysis of teams, players, and much more.
+                </span>
               </li>
               <li className="flex items-center">
                 <span className="text-blue-600 text-xl mr-2">✔</span>
-                <span>Breaking news and insights about cricket events worldwide.</span>
+                <span>In-depth statistical articles across all formats of the game.
+                </span>
               </li>
               <li className="flex items-center">
                 <span className="text-blue-600 text-xl mr-2">✔</span>
-                <span>Historical data for cricket enthusiasts.</span>
+                <span>Interactive insights and data visualizations to deepen your understanding of cricket trends.</span>
               </li>
             </ul>
           </div>
@@ -96,7 +98,7 @@ function AboutUs() {
       {/* Footer Section */}
       <div className="mt-16 text-center">
         <h3 className="text-xl text-gray-300 mb-4">
-          Join us and explore cricket like never before!
+          Join us and explore cricket stats like never before!
         </h3>
         <p className="text-yellow-500 text-sm">
           &copy; 2025 <span className="text-blue-600 font-semibold">Stump Stat</span>. All rights reserved.
