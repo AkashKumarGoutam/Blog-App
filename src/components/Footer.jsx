@@ -109,7 +109,7 @@ function Footer() {
                   to="/"
                   className="hover:text-white transition duration-300"
                 >
-                  T20
+                  Twenty20
                 </Link>
               </li>
               {/* <li><Link to="/"className="hover:text-white transition duration-300">League Cricket</Link></li> */}

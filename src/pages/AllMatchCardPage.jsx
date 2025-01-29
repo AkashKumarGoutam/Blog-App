@@ -53,7 +53,7 @@ function AllMatchCardPage() {
             </div>
             <input
               type="date"
-              className="border border-gray-300 text-sm lg:px-4 w-64"
+              className="text-black border border-gray-300 text-sm lg:px-4 w-64"
               value={searchQuery}
               onChange={(e) => {
                 setSearchQuery(e.target.value); // Update search query

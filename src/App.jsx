@@ -3,7 +3,6 @@ import { Route, Routes } from 'react-router-dom';
 import Login from './pages/admin/Login';
 import Dashboard from './pages/admin/Dashboard';
 import AllPost from './pages/admin/AllPost';
-import AllCategory from './pages/admin/AllCategory';
 import AddPosts from './pages/admin/AddPosts';
 import AddCategory from './pages/admin/AddCategory';
 import Navbar from './pages/admin/Navbar';

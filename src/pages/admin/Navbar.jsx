@@ -45,13 +45,13 @@ const Navbar = () => {
               to="/all-match-card"
               className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
             >
-              All Match Cards
+              All Matches
             </Link>
             <Link
               to="/all_news_articles"
               className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
             >
-              All News Articles
+              All Cricket Articles
             </Link>
             
             <Link
