@@ -1,6 +1,6 @@
 import React from "react";
 import LatestSection from "../components/LatestSection";
-import banner from "../assets/Stump Stat-10.png";
+import banner from "../assets/Stump Stat-11.png";
 import { Link } from "react-router-dom";
 import CricketStatisticsHub from "../components/CricketStatisticsHub";
 
