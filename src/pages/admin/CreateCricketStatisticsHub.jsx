@@ -11,6 +11,7 @@ import {
 import { app } from "../../firebase/Firebase"; // Ensure Firebase is configured correctly
 
 function CreateCricketStatisticsHub() {
+  const [matchName, setMatchName] = useState(""); // Match Name state
   const [battingScore, setBattingScore] = useState([
     { playerName: "", score: "" },
   ]);
@@ -24,10 +25,42 @@ function CreateCricketStatisticsHub() {
 
   const db = getFirestore(app);
 
+  // Validate all fields
+  const validateFields = () => {
+    if (!matchName.trim()) {
+      alert("Match name is required!");
+      return false;
+    }
+
+    const validateArray = (array, fields) =>
+      array.every((item) =>
+        fields.every((field) => item[field] && item[field].toString().trim())
+      );
+
+    if (!validateArray(battingScore, ["playerName", "score"])) {
+      alert("All batting score fields must be filled!");
+      return false;
+    }
+
+    if (!validateArray(bowlingScore, ["playerName", "wicket"])) {
+      alert("All bowling score fields must be filled!");
+      return false;
+    }
+
+    if (!validateArray(teamRanking, ["teamName", "rank"])) {
+      alert("All team ranking fields must be filled!");
+      return false;
+    }
+
+    return true;
+  };
+
   // Add or update data in Firebase
   const handleAddData = async () => {
+    if (!validateFields()) return; // Stop if validation fails
+
     try {
-      const data = { battingScore, bowlingScore, teamRanking };
+      const data = { matchName, battingScore, bowlingScore, teamRanking };
 
       if (isEditing && currentEditId) {
         const docRef = doc(db, "cricket statistics hub", currentEditId);
@@ -40,6 +73,7 @@ function CreateCricketStatisticsHub() {
         alert("Data successfully added!");
       }
 
+      setMatchName("");
       setBattingScore([{ playerName: "", score: "" }]);
       setBowlingScore([{ playerName: "", wicket: "" }]);
       setTeamRanking([{ teamName: "", rank: "" }]);
@@ -90,6 +124,7 @@ function CreateCricketStatisticsHub() {
 
   // Edit data
   const handleEdit = (data) => {
+    setMatchName(data.matchName);
     setBattingScore(data.battingScore);
     setBowlingScore(data.bowlingScore);
     setTeamRanking(data.teamRanking);
@@ -121,7 +156,12 @@ function CreateCricketStatisticsHub() {
   return (
     <div className="min-h-screen bg-gray-100 p-10">
       <h1 className="text-3xl font-bold text-center mb-8">
-        Cricket Statistics Hub
+      <input
+          className="w-64 border-2 border-gray-700 p-2 rounded-sm mr-6 text-sm"
+          placeholder="Match Name"
+          value={matchName}
+          onChange={(e) => setMatchName(e.target.value)}
+        />Cricket Statistics Hub
       </h1>
 
       {/* Form Sections */}
@@ -255,13 +295,16 @@ function CreateCricketStatisticsHub() {
 
       {/* Display Saved Data */}
       <section className="bg-white p-6 rounded-lg shadow-md">
-        <h2 className="text-xl font-semibold mb-4">Saved Data</h2>
+        {/* <h2 className="text-xl font-semibold mb-4">Saved Data</h2> */}
         {savedData.length === 0 ? (
           <p className="text-gray-500">No data available. Add some records!</p>
         ) : (
           savedData.map((data, index) => (
             <div key={index} className="mb-6 border-b pb-4">
-              <h3 className="text-lg font-bold mb-2">Record {index + 1}</h3>
+                <h3 className="text-lg font-bold mb-2">
+                Match Name: {data.matchName || "Unknown"}
+              </h3>
+              {/* <h3 className="text-lg font-bold mb-2">Record {index + 1}</h3> */}
 
               {/* Batting Score */}
               <div className="mb-4">

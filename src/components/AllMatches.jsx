@@ -22,12 +22,12 @@ function AllMatches() {
           ...doc.data(),
         }));
 
-        // Sort by date (ascending)
-        const sortedMatches = matches.sort((a, b) => 
-          new Date(b.date) - new Date(a.date)
+        // Sort by date (descending)
+        const sortedMatches = matches.sort(
+          (a, b) => new Date(b.date) - new Date(a.date)
         );
 
-        setMatchCards(sortedMatches);
+        setMatchCards(sortedMatches.slice(0, 10)); // Limit to 10 matches
       } catch (error) {
         console.error("Error fetching matchcards: ", error);
       }
@@ -110,8 +110,8 @@ function AllMatches() {
               ))}
             </div>
           </div>
-  
-          {/* Navigation and Indicators */}
+
+          {/* Navigation */}
           {!isMobile && (
             <>
               <button
@@ -136,28 +136,10 @@ function AllMatches() {
               </button>
             </>
           )}
-          <div className="hidden lg:block">
-            <div className="flex justify-center mt-4">
-              {Array.from({ length: Math.max(matchCards.length - cardsToShow + 1, 0) }).map(
-                (_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentIndex(index)}
-                    className={`h-3 w-3 mx-1 rounded-full ${
-                      currentIndex === index
-                        ? "bg-gray-200"
-                        : "bg-gray-600 hover:bg-gray-500"
-                    }`}
-                  ></button>
-                )
-              )}
-            </div>
-          </div>
         </div>
       )}
     </div>
   );
-  
 }
 
 export default AllMatches;

@@ -78,11 +78,7 @@ function Client() {
         </div>
         <LatestSection />
 
-        <div className=" bg-black py-16  max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="text-center mb-12 animate__animated animate__fadeIn">
-        <h2 className="text-3xl font-bold text-white mb-4">Cricket Statistics Hub</h2>
-        <p className="text-gray-400">Comprehensive cricket statistics and rankings</p>
-      </div>
+     
 
       <CricketStatisticsHub/>
 
@@ -120,7 +116,7 @@ function Client() {
           <div className="text-gray-400 text-sm">Highest Team Score</div>
         </div>
       </div> */}
-    </div>
+    {/* </div> */}
 
 
 

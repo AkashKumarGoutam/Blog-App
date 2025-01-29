@@ -1,7 +1,6 @@
 import React from "react";
 import "./PreLoader.css";
-import logo from "../../assets/Blue and Red Illustrative Cricket Club Sports Logo-2.png"
-import LoadingComponents from "../LoadingComponents";
+import logo from "../../assets/logo.png";
 
 const PreLoader = () => {
   return (
