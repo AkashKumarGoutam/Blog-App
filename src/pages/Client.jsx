@@ -7,7 +7,7 @@ import CricketStatisticsHub from "../components/CricketStatisticsHub";
 function Client() {
   return (
     <>
-      <div className="">
+      <div className="bg-black">
       <div className="flex bg-black px-12 flex-col lg:flex-row items-center justify-between h-full py-12">
         <div className="lg:w-1/2 text-white space-y-6 animate__animated animate__fadeInLeft">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
@@ -69,7 +69,7 @@ function Client() {
       </div>
 
 
-        <div className="flex justify-center">
+        <div className="flex pb-6 justify-center">
           <img
             src={banner}
             className="w-full sm:h-full md:h-48 lg:h-48"
