@@ -1,5 +1,5 @@
 import React from "react";
-import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa";
 
 function ContactPage() {
   return (
@@ -22,22 +22,22 @@ function ContactPage() {
               Reach out to us for any inquiries or support.
             </p>
             <ul className="mt-4 space-y-3">
-            <li className="flex items-center">
+            {/* <li className="flex items-center">
                 <span className="w-6 h-6 mr-3 text-blue-600">👨🏻‍🎓</span>
                 <span>Akash Kumar Goutam</span>
-              </li>
-              <li className="flex items-center">
+              </li> */}
+              {/* <li className="flex items-center">
                 <span className="w-6 h-6 mr-3 text-blue-600">📍</span>
                 <span>Alpha 2 Main Market , Greater Noida , Uttar Pradesh , 201310</span>
-              </li>
+              </li> */}
               <li className="flex items-center">
                 <span className="w-6 h-6 mr-3 text-blue-600">📧</span>
-                <span>support@stumpstats.com</span>
+                <span>stumpstat@gmail.com</span>
               </li>
-              <li className="flex items-center">
+              {/* <li className="flex items-center">
                 <span className="w-6 h-6 mr-3 text-blue-600">📞</span>
                 <span>+91 7004834415</span>
-              </li>
+              </li> */}
             </ul>
 
             <div className="mt-6">
@@ -46,24 +46,25 @@ function ContactPage() {
               </h3>
               <div className="flex space-x-6 mt-3">
                 <a
-                  href="https://facebook.com"
+                  href="https://www.linkedin.com/company/stump-stat/?viewAsMember=true"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 flex items-center space-x-2"
                 >
-                  <FaFacebook className="text-xl" />
-                  <span>Facebook</span>
+                  <FaLinkedin className="text-3xl" />
+                  {/* <span>LinkedIn</span> */}
                 </a>
                 <a
-                  href="https://twitter.com"
+                  href="https://x.com/StumpStat"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-400 hover:text-blue-600 flex items-center space-x-2"
                 >
-                  <FaTwitter className="text-xl" />
-                  <span>Twitter</span>
+                  {/* <FaTwitter className="text-xl" /> */}
+                  <img src="https://img.icons8.com/fluency/48/twitterx--v2.png" className="w-7"/>
+                  {/* <span>X</span> */}
                 </a>
-                <a
+                {/* <a
                   href="https://instagram.com"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -71,7 +72,7 @@ function ContactPage() {
                 >
                   <FaInstagram className="text-xl" />
                   <span>Instagram</span>
-                </a>
+                </a> */}
               </div>
             </div>
           </div>

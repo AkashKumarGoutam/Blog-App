@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { TextField, Select, MenuItem, InputLabel, FormControl } from "@mui/material";
-import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
+import { getFirestore, collection, addDoc, getDocs, doc, deleteDoc, updateDoc } from "firebase/firestore";
 import { app } from "../../firebase/Firebase"; // Adjust the path based on your project structure
 
 const AddMatchCards = () => {
   const [matches, setMatches] = useState([]);
-  const [flags, setFlags] = useState([]); // To store flag names and URLs
+  const [flags, setFlags] = useState([]);
   const [newMatch, setNewMatch] = useState({
     battleName: "",
     slug: "",
@@ -18,6 +18,7 @@ const AddMatchCards = () => {
     matchName: "",
     winningStatus: "",
   });
+  const [editingMatchId, setEditingMatchId] = useState(null); // To track the match being edited
 
   const db = getFirestore(app);
 
@@ -59,15 +60,23 @@ const AddMatchCards = () => {
     fetchFlags();
   }, [db]);
 
-  // Add new match to Firestore
-  const handleAddMatch = async () => {
+  // Add or update match in Firestore
+  const handleAddOrUpdateMatch = async () => {
     try {
       const matchCollection = collection(db, "matchcards");
 
-      // Add new match to "matchcards" collection
-      await addDoc(matchCollection, newMatch);
+      if (editingMatchId) {
+        // Update existing match
+        const matchDoc = doc(db, "matchcards", editingMatchId);
+        await updateDoc(matchDoc, newMatch);
+        alert("Match updated successfully!");
+      } else {
+        // Add new match
+        await addDoc(matchCollection, newMatch);
+        alert("Match added successfully!");
+      }
 
-      // Reset form
+      // Reset form and state
       setNewMatch({
         battleName: "",
         slug: "",
@@ -80,30 +89,54 @@ const AddMatchCards = () => {
         matchName: "",
         winningStatus: "",
       });
-
-      alert("Match added successfully!");
+      setEditingMatchId(null);
     } catch (error) {
-      console.error("Error adding match:", error);
-      alert("Failed to add match. Please try again.");
+      console.error("Error adding/updating match:", error);
+      alert("Failed to add/update match. Please try again.");
     }
+  };
+
+  // Delete match from Firestore
+  const handleDeleteMatch = async (id) => {
+    const confirmDelete = window.confirm("Are you sure you want to delete this match?");
+    if (!confirmDelete) return;
+
+    try {
+      const matchDoc = doc(db, "matchcards", id);
+      await deleteDoc(matchDoc);
+      alert("Match deleted successfully!");
+      setMatches(matches.filter((match) => match.id !== id)); // Update state
+    } catch (error) {
+      console.error("Error deleting match:", error);
+      alert("Failed to delete match. Please try again.");
+    }
+  };
+
+  // Edit match
+  const handleEditMatch = (match) => {
+    setNewMatch(match); // Populate the form with match details
+    setEditingMatchId(match.id); // Set the ID of the match being edited
   };
 
   return (
     <div className="p-6">
-      <h2 className="text-xl font-bold mb-4">Add a New Match</h2>
+      <h2 className="text-xl font-bold mb-4">{editingMatchId ? "Edit Match" : "Add a New Match"}</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+        {/* Form fields */}
         <TextField
           label="Battle Name"
           value={newMatch.battleName}
           onChange={(e) => setNewMatch({ ...newMatch, battleName: e.target.value })}
           fullWidth
         />
+        {/* Other fields */}
         <TextField
           label="Slug"
           value={newMatch.slug}
           onChange={(e) => setNewMatch({ ...newMatch, slug: e.target.value })}
           fullWidth
         />
+        {/* Team A and Flag */}
         <TextField
           label="Team A"
           value={newMatch.teamA}
@@ -124,6 +157,7 @@ const AddMatchCards = () => {
             ))}
           </Select>
         </FormControl>
+        {/* Team B and Flag */}
         <TextField
           label="Team B"
           value={newMatch.teamB}
@@ -144,6 +178,7 @@ const AddMatchCards = () => {
             ))}
           </Select>
         </FormControl>
+        {/* Additional fields */}
         <TextField
           label="Date"
           type="date"
@@ -159,7 +194,7 @@ const AddMatchCards = () => {
           fullWidth
         />
         <TextField
-          label="Match Name like ODI , T20"
+          label="Match Name like ODI, T20"
           value={newMatch.matchName}
           onChange={(e) => setNewMatch({ ...newMatch, matchName: e.target.value })}
           fullWidth
@@ -172,10 +207,10 @@ const AddMatchCards = () => {
         />
       </div>
       <button
-        onClick={handleAddMatch}
+        onClick={handleAddOrUpdateMatch}
         className="bg-blue-500 text-white px-4 py-2 rounded-md"
       >
-        Add Match
+        {editingMatchId ? "Update Match" : "Add Match"}
       </button>
 
       <h2 className="text-xl font-bold my-6">Match List</h2>
@@ -185,10 +220,7 @@ const AddMatchCards = () => {
             key={match.id}
             className="bg-white shadow-md rounded-lg p-4 border border-gray-200"
           >
-            <div className="flex justify-between items-center">
             <h3 className="text-lg font-semibold">{match.battleName}</h3>
-            <button className="text-sm bg-blue-800 px-2 py-1 rounded-lg text-white">Edit</button>
-            </div>
             <p className="text-sm text-gray-600">{match.stadium}</p>
             <p className="text-sm text-gray-600">{match.date}</p>
             <div className="flex items-center mt-2 space-x-4">
@@ -212,9 +244,19 @@ const AddMatchCards = () => {
             <p className="text-sm font-semibold mt-2">
               {match.winningStatus || "Status not available"}
             </p>
-            <div className="flex justify-between items-center">
-            <p className="text-sm text-gray-700 mt-2">{match.matchName}</p>
-            <button className="text-sm bg-red-500 px-2 py-1 rounded-lg text-white">Delete</button>
+            <div className="flex justify-between items-center mt-2">
+              <button
+                onClick={() => handleEditMatch(match)}
+                className="text-sm bg-blue-500 px-2 py-1 rounded-lg text-white"
+              >
+                Edit
+              </button>
+              <button
+                onClick={() => handleDeleteMatch(match.id)}
+                className="text-sm bg-red-500 px-2 py-1 rounded-lg text-white"
+              >
+                Delete
+              </button>
             </div>
           </div>
         ))}

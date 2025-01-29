@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
+import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, updateDoc } from "firebase/firestore";
 import { app } from "../../firebase/Firebase"; // Importing app from your unchanged firebase.js file
 
 const db = getFirestore(app);
@@ -9,7 +9,9 @@ function AddFlagImageURL() {
   const [flagImageName, setFlagImageName] = useState("");
   const [flags, setFlags] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [editingFlag, setEditingFlag] = useState(null); // Track flag being edited
 
+  // Fetch flags from Firebase
   const fetchFlags = async () => {
     try {
       const querySnapshot = await getDocs(collection(db, "flags"));
@@ -23,6 +25,7 @@ function AddFlagImageURL() {
     }
   };
 
+  // Add a new flag
   const handleAddFlagImageURL = async () => {
     if (!flagImageURL || !flagImageName) {
       alert("Please fill in all fields!");
@@ -31,22 +34,59 @@ function AddFlagImageURL() {
 
     setLoading(true);
     try {
-      await addDoc(collection(db, "flags"), {
-        name: flagImageName,
-        url: flagImageURL,
-      });
-      alert("Flag added successfully!");
+      if (editingFlag) {
+        // Update the existing flag
+        const flagRef = doc(db, "flags", editingFlag.id);
+        await updateDoc(flagRef, {
+          name: flagImageName,
+          url: flagImageURL,
+        });
+        alert("Flag updated successfully!");
+        setEditingFlag(null);
+      } else {
+        // Add a new flag
+        await addDoc(collection(db, "flags"), {
+          name: flagImageName,
+          url: flagImageURL,
+        });
+        alert("Flag added successfully!");
+      }
+
       setFlagImageName("");
       setFlagImageURL("");
       fetchFlags();
     } catch (error) {
-      console.error("Error adding flag:", error);
-      alert("Failed to add flag.");
+      console.error("Error adding/updating flag:", error);
+      alert("Failed to add or update flag.");
     } finally {
       setLoading(false);
     }
   };
 
+  // Delete a flag
+  const handleDeleteFlag = async (flagId) => {
+    const confirmDelete = window.confirm("Are you sure you want to delete this flag?");
+    if (confirmDelete) {
+      try {
+        const flagRef = doc(db, "flags", flagId);
+        await deleteDoc(flagRef);
+        alert("Flag deleted successfully!");
+        setFlags((prevFlags) => prevFlags.filter((flag) => flag.id !== flagId));
+      } catch (error) {
+        console.error("Error deleting flag:", error);
+        alert("Failed to delete flag.");
+      }
+    }
+  };
+
+  // Handle edit
+  const handleEditFlag = (flag) => {
+    setFlagImageURL(flag.url);
+    setFlagImageName(flag.name);
+    setEditingFlag(flag);
+  };
+
+  // Fetch flags on component mount
   useEffect(() => {
     fetchFlags();
   }, []);
@@ -55,7 +95,7 @@ function AddFlagImageURL() {
     <div className="flex lg:pt-2 justify-center items-center">
       <div className="flex flex-col border-2 border-gray-300 rounded-xl py-4 px-12">
         <h1 className="text-xl font-semibold flex justify-center underline py-4">
-          Add Flag Image URL
+          {editingFlag ? "Edit Flag Image" : "Add Flag Image URL"}
         </h1>
         <input
           id="add-flag-imageURL"
@@ -79,27 +119,36 @@ function AddFlagImageURL() {
             onClick={handleAddFlagImageURL}
             disabled={loading}
           >
-            {loading ? "Adding..." : "Add Flag"}
+            {loading ? (editingFlag ? "Updating..." : "Adding...") : editingFlag ? "Update Flag" : "Add Flag"}
           </button>
         </div>
 
         <div className="py-2">
-          <h1 className="text-xl font-semibold underline">
-            All Flag Image Names
-          </h1>
+          <h1 className="text-xl font-semibold underline">All Flag Image Names</h1>
           <div className="flex flex-wrap gap-2">
-          {flags.map((flag) => (
-            <div
-              key={flag.id}
-              className="flex w-72 justify-around items-center border-2 border-gray-200 rounded-lg p-3 mt-2"
-            >
-              <img src={flag.url} alt={flag.name} className=" w-6 h-6 rounded-full" />
-
-              <h1 className="font-semibold"> {flag.name}</h1>
-              <button className="text-sm bg-red-500 px-2 py-1 rounded-lg text-white">Delete</button>
-
-            </div>
-          ))}
+            {flags.map((flag) => (
+              <div
+                key={flag.id}
+                className="flex w-72 justify-between items-center border-2 border-gray-200 rounded-lg p-3 mt-2"
+              >
+                <img src={flag.url} alt={flag.name} className="w-6 h-6 rounded-full" />
+                <h1 className="font-semibold">{flag.name}</h1>
+                <div className="flex gap-2">
+                  <button
+                    className="text-sm bg-yellow-500 px-2 py-1 rounded-lg text-white"
+                    onClick={() => handleEditFlag(flag)}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className="text-sm bg-red-500 px-2 py-1 rounded-lg text-white"
+                    onClick={() => handleDeleteFlag(flag.id)}
+                  >
+                    Delete
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

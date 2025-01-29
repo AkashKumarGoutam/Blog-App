@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { TextareaAutosize, TextField, MenuItem, Select, FormControl, InputLabel } from "@mui/material";
+import { TextField, MenuItem, Select, FormControl, InputLabel } from "@mui/material";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 import { getFirestore, doc, getDoc, updateDoc, collection, getDocs } from "firebase/firestore";
 import { app } from "../../firebase/Firebase";
 import { useParams, useNavigate } from "react-router-dom";
@@ -103,13 +105,12 @@ function EditPost() {
           />
 
           {/* Description Field */}
-          <TextareaAutosize
-            aria-label="Post description"
-            minRows={4}
-            placeholder="Description"
-            className="w-full border-2 border-gray-300 rounded-lg p-3"
+          <ReactQuill
+            className="zIndex-0"
+            theme="snow"
             value={description}
-            onChange={(e) => setDescription(e.target.value)}
+            onChange={(value) => setDescription(value)}
+            placeholder="Write your content here..."
           />
 
           {/* Author Field */}

@@ -70,7 +70,7 @@ const App = () => {
           {/* Nested Routes */}
           <Route index element={<AllPost />} />
           <Route path="all-articles" element={<AllPost />} />
-          <Route path="all-category" element={<AllCategory />} />
+          {/* <Route path="all-category" element={<AllCategory />} /> */}
           <Route path="add-articles" element={<AddPosts />} />
           <Route path="add-category" element={<AddCategory />} />
           <Route path="create-match-card" element={<AddMatches />} />

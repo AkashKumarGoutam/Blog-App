@@ -68,7 +68,7 @@ function Sidebar() {
               Add Articles
             </NavLink>
           </div>
-          <div className="bg-gray-900 hover:bg-gray-700 transition duration p-2 mt-2">
+          {/* <div className="bg-gray-900 hover:bg-gray-700 transition duration p-2 mt-2">
             <NavLink
               to="all-category"
               onClick={closeSidebar} // Close sidebar when clicked
@@ -78,7 +78,7 @@ function Sidebar() {
             >
               All Category
             </NavLink>
-          </div>
+          </div> */}
 
           <div className="bg-gray-900 hover:bg-gray-700 transition duration p-2 mt-2">
             <NavLink

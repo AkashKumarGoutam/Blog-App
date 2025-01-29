@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import { TextField, Button, MenuItem, Select, InputLabel, FormControl } from "@mui/material";
-import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
+import { Button, MenuItem, Select, InputLabel, FormControl } from "@mui/material";
+import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, updateDoc } from "firebase/firestore";
 import { app } from "../../firebase/Firebase";
 
 const AddMatchPosts = () => {
   const [matchCards, setMatchCards] = useState([]);
   const [matchPosts, setMatchPosts] = useState([]);
-  const [flags, setFlags] = useState([]);
+  const [isEditing, setIsEditing] = useState(false);
+  const [currentPostId, setCurrentPostId] = useState(null);
   const [matchPost, setMatchPost] = useState({
     title: "",
     description: "",
@@ -39,7 +40,7 @@ const AddMatchPosts = () => {
     };
 
     fetchMatchCards();
-  }, [db]);
+  }, []);
 
   // Fetch match posts
   useEffect(() => {
@@ -58,27 +59,75 @@ const AddMatchPosts = () => {
     };
 
     fetchMatchPosts();
-  }, [db]);
+  }, []);
 
-  // Fetch flags
-  useEffect(() => {
-    const fetchFlags = async () => {
-      try {
-        const flagsCollection = collection(db, "flags");
-        const flagsSnapshot = await getDocs(flagsCollection);
-        const flagsList = flagsSnapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        setFlags(flagsList);
-      } catch (error) {
-        console.error("Error fetching flags:", error);
-      }
-    };
+  // Delete match post
+  const handleDeletePost = async (postId) => {
+    try {
+      await deleteDoc(doc(db, "matchposts", postId));
+      setMatchPosts(matchPosts.filter((post) => post.id !== postId));
+      alert("Post deleted successfully!");
+    } catch (error) {
+      console.error("Error deleting post:", error);
+      alert("Failed to delete the post. Please try again.");
+    }
+  };
 
-    fetchFlags();
-  }, [db]);
+  // Edit match post
+  const handleEditPost = (post) => {
+    setMatchPost({
+      title: post.title || "",
+      description: post.description || "",
+      imageUrl: post.imageUrl || "",
+      author: post.author || "",
+      dateOfPost: post.dateOfPost || "",
+      dateOfMatch: post.dateOfMatch || "",
+      slug: post.slug || "",
+      matchCardId: post.matchCardId || "",
+    });
+    setCurrentPostId(post.id);
+    setIsEditing(true);
+  };
 
+  // Save edited post
+  const handleSaveEdit = async () => {
+    if (!currentPostId) {
+      alert("No post selected for editing!");
+      return;
+    }
+
+    try {
+      const postRef = doc(db, "matchposts", currentPostId);
+      await updateDoc(postRef, {
+        ...matchPost,
+        dateOfPost: new Date().toISOString(),
+      });
+
+      const updatedPosts = matchPosts.map((post) =>
+        post.id === currentPostId ? { ...post, ...matchPost, dateOfPost: new Date().toISOString() } : post
+      );
+
+      setMatchPosts(updatedPosts);
+      alert("Post updated successfully!");
+      setIsEditing(false);
+      setMatchPost({
+        title: "",
+        description: "",
+        imageUrl: "",
+        author: "",
+        dateOfPost: "",
+        dateOfMatch: "",
+        slug: "",
+        matchCardId: "",
+      });
+      setCurrentPostId(null);
+    } catch (error) {
+      console.error("Error updating post:", error);
+      alert("Failed to update the post. Please try again.");
+    }
+  };
+
+  // Add new match post
   const handleAddMatchPost = async () => {
     try {
       if (!matchPost.slug || !matchPost.matchCardId) {
@@ -119,13 +168,13 @@ const AddMatchPosts = () => {
 
   return (
     <div className="p-6">
-      <h2 className="text-xl font-bold mb-4">Add Match Post</h2>
+      <h2 className="text-xl font-bold mb-4">{isEditing ? "Edit Match Post" : "Add Match Post"}</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-        <TextField
-          label="Title"
+        <input
+          placeholder="Title"
+          className="border border-gray-300 p-2 rounded-md"
           value={matchPost.title}
           onChange={(e) => setMatchPost({ ...matchPost, title: e.target.value })}
-          fullWidth
         />
         <ReactQuill
           theme="snow"
@@ -134,33 +183,24 @@ const AddMatchPosts = () => {
           placeholder="Write your content here..."
           className="mb-10"
         />
-        <FormControl fullWidth>
-          <InputLabel id="flag-label">Select Flag</InputLabel>
-          <Select
-            labelId="flag-label"
-            value={matchPost.imageUrl}
-            onChange={(e) => setMatchPost({ ...matchPost, imageUrl: e.target.value })}
-          >
-            {flags.map((flag) => (
-              <MenuItem key={flag.id} value={flag.url}>
-                {flag.name}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-        <TextField
-          label="Author"
+        <input
+          placeholder="Image URL"
+          className="border border-gray-300 p-2 rounded-md"
+          value={matchPost.imageUrl}
+          onChange={(e) => setMatchPost({ ...matchPost, imageUrl: e.target.value })}
+        />
+        <input
+          placeholder="Author"
+          className="border border-gray-300 p-2 rounded-md"
           value={matchPost.author}
           onChange={(e) => setMatchPost({ ...matchPost, author: e.target.value })}
-          fullWidth
         />
-        <TextField
-          label="Date of Match"
+        <input
+          className="border border-gray-300 p-2 rounded-md"
+          placeholder="Date of Match"
           type="date"
           value={matchPost.dateOfMatch}
           onChange={(e) => setMatchPost({ ...matchPost, dateOfMatch: e.target.value })}
-          fullWidth
-          InputLabelProps={{ shrink: true }}
         />
         <FormControl fullWidth>
           <InputLabel id="slug-label">Slug</InputLabel>
@@ -184,8 +224,12 @@ const AddMatchPosts = () => {
           </Select>
         </FormControl>
       </div>
-      <Button variant="contained" color="primary" onClick={handleAddMatchPost}>
-        Add Match Post
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={isEditing ? handleSaveEdit : handleAddMatchPost}
+      >
+        {isEditing ? "Save Changes" : "Add Match Post"}
       </Button>
 
       <h2 className="text-xl font-bold my-6">Match Posts List</h2>
@@ -203,9 +247,19 @@ const AddMatchPosts = () => {
               className="text-sm text-gray-700 mt-2"
               dangerouslySetInnerHTML={{ __html: post.description }}
             ></div>
-            <div className="flex justify-between items-center">
-            <button className="text-sm bg-blue-800 px-2 py-1 rounded-lg text-white">Edit</button>
-            <button className="text-sm bg-red-500 px-2 py-1 rounded-lg text-white">Delete</button>
+            <div className="flex justify-between items-center mt-4">
+              <button
+                className="text-sm bg-blue-800 px-2 py-1 rounded-md text-white"
+                onClick={() => handleEditPost(post)}
+              >
+                Edit
+              </button>
+              <button
+                className="text-sm bg-red-600 px-2 py-1 rounded-md text-white"
+                onClick={() => handleDeletePost(post.id)}
+              >
+                Delete
+              </button>
             </div>
           </div>
         ))}
