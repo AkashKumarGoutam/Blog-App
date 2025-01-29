@@ -124,6 +124,17 @@ function Sidebar() {
               Add Flag imageURL
             </NavLink>
           </div>
+          <div className="bg-gray-900 hover:bg-gray-700 transition duration p-2 mt-2">
+            <NavLink
+              to="create-cricket-statistics-hub"
+              onClick={closeSidebar} // Close sidebar when clicked
+              className={({ isActive }) =>
+                isActive ? "text-blue-500 font-bold" : "text-white text-xl my-4"
+              }
+            >
+              Create Cricket Statistics Hub
+            </NavLink>
+          </div>
         </div>
       </div>
     </div>

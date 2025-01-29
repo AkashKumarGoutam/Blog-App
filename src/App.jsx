@@ -27,6 +27,7 @@ import AddFlagImageURL from './pages/admin/AddFlagImageURL.jsx';
 import ContactPage from './components/ContactPage.jsx';
 import PreLoader from './components/PreLoader/PreLoader.jsx';
 import StatAnalysis from './pages/StatAnalysis.jsx';
+import CreateCricketStatisticsHub from './pages/admin/CreateCricketStatisticsHub.jsx';
 
 const App = () => {
   // loader state
@@ -76,6 +77,7 @@ const App = () => {
           <Route path="create-match-card" element={<AddMatches />} />
           <Route path="add-match-posts" element={<AddMatchPosts />} />
           <Route path="add-flag-imageURL" element={<AddFlagImageURL />} />
+          <Route path="create-cricket-statistics-hub" element={<CreateCricketStatisticsHub />} />
         </Route>
         <Route path="/edit-post/:id" element={<EditPost />} />
         <Route path="/edit-category/:id" element={<EditCategory />} />

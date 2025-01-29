@@ -2,6 +2,7 @@ import React from "react";
 import LatestSection from "../components/LatestSection";
 import banner from "../assets/Stump Stat-10.png";
 import { Link } from "react-router-dom";
+import CricketStatisticsHub from "../components/CricketStatisticsHub";
 
 function Client() {
   return (
@@ -83,68 +84,7 @@ function Client() {
         <p className="text-gray-400">Comprehensive cricket statistics and rankings</p>
       </div>
 
-      {/* <!-- Stats Categories --> */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-        <div className="bg-gray-900 rounded-lg p-6 hover:transform hover:scale-105 transition duration-300 animate__animated animate__fadeInUp">
-          <div className="stats-tab active cursor-pointer" data-tab="batting">
-            <h3 className="text-xl font-semibold text-white mb-4">Batting Stats</h3>
-            <div className="space-y-4">
-              <div className="flex justify-between text-gray-300">
-                <span>Virat Kohli</span>
-                <span className="text-green-500">12,898</span>
-              </div>
-              <div className="flex justify-between text-gray-300">
-                <span>Joe Root</span>
-                <span className="text-green-500">10,956</span>
-              </div>
-              <div className="flex justify-between text-gray-300">
-                <span>Steve Smith</span>
-                <span className="text-green-500">10,823</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-gray-900 rounded-lg p-6 hover:transform hover:scale-105 transition duration-300 animate__animated animate__fadeInUp">
-          <div className="stats-tab" data-tab="bowling">
-            <h3 className="text-xl font-semibold text-white mb-4">Bowling Stats</h3>
-            <div className="space-y-4">
-              <div className="flex justify-between text-gray-300">
-                <span>R Ashwin</span>
-                <span className="text-green-500">442</span>
-              </div>
-              <div className="flex justify-between text-gray-300">
-                <span>Nathan Lyon</span>
-                <span className="text-green-500">438</span>
-              </div>
-              <div className="flex justify-between text-gray-300">
-                <span>Stuart Broad</span>
-                <span className="text-green-500">604</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-gray-900 rounded-lg p-6 hover:transform hover:scale-105 transition duration-300 animate__animated animate__fadeInUp" >
-          <div className="stats-tab" data-tab="teams">
-            <h3 className="text-xl font-semibold text-white mb-4">Team Rankings</h3>
-            <div className="space-y-4">
-              <div className="flex justify-between text-gray-300">
-                <span>Australia</span>
-                <span className="text-green-500">121</span>
-              </div>
-              <div className="flex justify-between text-gray-300">
-                <span>India</span>
-                <span className="text-green-500">119</span>
-              </div>
-              <div className="flex justify-between text-gray-300">
-                <span>England</span>
-                <span className="text-green-500">111</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <CricketStatisticsHub/>
 
       {/* <!-- Interactive Stats Chart --> */}
       {/* <div className="bg-neutral-800 rounded-lg p-6 mb-12 transition duration-300">
@@ -162,7 +102,7 @@ function Client() {
       </div> */}
 
       {/* <!-- Quick Stats Cards --> */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div className="bg-gray-900 rounded-lg p-4 text-center">
           <div className="text-3xl font-bold text-green-500">267</div>
           <div className="text-gray-400 text-sm">Highest Score</div>
@@ -179,7 +119,7 @@ function Client() {
           <div className="text-3xl font-bold text-green-500">952/6</div>
           <div className="text-gray-400 text-sm">Highest Team Score</div>
         </div>
-      </div>
+      </div> */}
     </div>
 
 
