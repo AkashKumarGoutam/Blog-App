@@ -44,7 +44,7 @@ function LatestSection() {
       {/* Latest Section */}
       <section id="latest" className="bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl text-gray-400 font-bold text-center mb-6 animate__animated animate__fadeIn">
+          <h2 className="text-4xl text-gray-400 font-bold mb-6 animate__animated animate__fadeIn">
             Latest Articles
           </h2>
 
@@ -89,7 +89,7 @@ function LatestSection() {
             </div>
 
             {/* Image Carousel Column */}
-            <div className="relative mb-96 lg:mb-0 l overflow-hidden h-full ">
+            {/* <div className="relative mb-96 lg:mb-0 l overflow-hidden h-full ">
               <h1 className="flex justify-center text-2xl py-4 font-semibold underline">Highlights</h1>
               <div className="flex absolute w-full h-full animate-scroll">
                 <img src={img4} alt="Image 1" className="h-96 w-auto rounded-lg mr-4" />
@@ -97,12 +97,12 @@ function LatestSection() {
                 <img src={img4} alt="Image 3" className="h-96 w-auto rounded-lg mr-4" />
                 <img src={img4} alt="Image 4" className="h-96 w-auto rounded-lg mr-4" />
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
 
-      <style>
+      {/* <style>
         {`
           @keyframes scroll {
             0% {
@@ -116,7 +116,7 @@ function LatestSection() {
             animation: scroll 20s linear infinite;
           }
         `}
-      </style>
+      </style> */}
     </div>
   );
 }
