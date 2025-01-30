@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
-import { app } from '../firebase/Firebase'; // Firebase app configuration
-import LoadingComponents from '../components/LoadingComponents';
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { getFirestore, collection, getDocs } from "firebase/firestore";
+import { app } from "../firebase/Firebase"; // Firebase app configuration
+import LoadingComponents from "../components/LoadingComponents";
 
 function AllMatchCardPage() {
   const [matchCards, setMatchCards] = useState([]);
@@ -20,7 +20,9 @@ function AllMatchCardPage() {
         }));
 
         // Sort matches by date (recent date first)
-        const sortedMatches = matches.sort((a, b) => new Date(b.date) - new Date(a.date));
+        const sortedMatches = matches.sort(
+          (a, b) => new Date(b.date) - new Date(a.date)
+        );
 
         setMatchCards(sortedMatches);
       } catch (error) {
@@ -93,7 +95,9 @@ function AllMatchCardPage() {
                   <div className="flex flex-col gap-2">
                     <div className="flex items-center gap-4">
                       <img
-                        src={match.teamAImage || "https://via.placeholder.com/40"}
+                        src={
+                          match.teamAImage || "https://via.placeholder.com/40"
+                        }
                         alt="Team A"
                         className="w-8 h-8 rounded-full border border-gray-300"
                       />
@@ -103,7 +107,9 @@ function AllMatchCardPage() {
                     </div>
                     <div className="flex items-center gap-4">
                       <img
-                        src={match.teamBImage || "https://via.placeholder.com/40"}
+                        src={
+                          match.teamBImage || "https://via.placeholder.com/40"
+                        }
                         alt="Team B"
                         className="w-8 h-8 rounded-full border border-gray-300"
                       />
@@ -113,16 +119,16 @@ function AllMatchCardPage() {
                     </div>
                   </div>
                   <div className="text-end mt-2">
-        <h1
-          className={`text-sm font-semibold ${
-            match.winningStatus === "Live"
-              ? "text-red-500 animate-pulse"
-              : "text-green-500"
-          }`}
-        >
-          {match.winningStatus || "N/A"}
-        </h1>
-      </div>
+                    <h1
+                      className={`text-sm font-semibold ${
+                        match.winningStatus === "Live"
+                          ? "text-red-500 animate-pulse"
+                          : "text-green-500"
+                      }`}
+                    >
+                      {match.winningStatus || "N/A"}
+                    </h1>
+                  </div>
                 </Link>
               </div>
             ))
