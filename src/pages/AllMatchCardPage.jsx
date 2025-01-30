@@ -112,11 +112,17 @@ function AllMatchCardPage() {
                       </h1>
                     </div>
                   </div>
-                  <div className="text-center mt-2">
-                    <h1 className="text-sm text-green-500 font-semibold">
-                      {match.winningStatus || "N/A"}
-                    </h1>
-                  </div>
+                  <div className="text-end mt-2">
+        <h1
+          className={`text-sm font-semibold ${
+            match.winningStatus === "Live"
+              ? "text-red-500 animate-pulse"
+              : "text-green-500"
+          }`}
+        >
+          {match.winningStatus || "N/A"}
+        </h1>
+      </div>
                 </Link>
               </div>
             ))
