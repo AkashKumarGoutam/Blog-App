@@ -9,18 +9,19 @@ function MatchCard({ match, onClick }) {
       {/* Match Info */}
       <div className="flex w-48 justify-between items-center mb-1">
         <div className="flex items-center gap-2 text-xs">
-          <span className="text-yellow-200 font-medium">{match.date || "N/A"}</span>
+          <span className="text-yellow-200 font-medium">
+            {match.date || "N/A"}
+          </span>
           <span className="text-gray-100">|</span>
           <span className="text-yellow-200 font-semibold">
             {match.matchName || "N/A"}
           </span>
           <img
-          src="https://crex.live/assets/icon/rightArrow.svg"
-          alt="arrow"
-          className="w-3 h-3"
-        />
+            src="https://crex.live/assets/icon/rightArrow.svg"
+            alt="arrow"
+            className="w-3 h-3"
+          />
         </div>
-        
       </div>
 
       {/* Stadium Info */}
@@ -50,7 +51,13 @@ function MatchCard({ match, onClick }) {
 
       {/* Winning Status */}
       <div className="text-end mt-2">
-        <h1 className="text-sm text-green-500 font-semibold">
+        <h1
+          className={`text-sm font-semibold ${
+            match.winningStatus === "Live"
+              ? "text-red-500 animate-pulse"
+              : "text-green-500"
+          }`}
+        >
           {match.winningStatus || "N/A"}
         </h1>
       </div>
