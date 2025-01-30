@@ -1,13 +1,15 @@
+// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBMW9VrhmdFHS1RSs80OsUV6jZskt0TXbY",
-  authDomain: "blog-app-60cf4.firebaseapp.com",
-  projectId: "blog-app-60cf4",
-  storageBucket: "blog-app-60cf4.appspot.com",
-  messagingSenderId: "102808933035",
-  appId: "1:102808933035:web:034200e2a0366cce0c1dee",
+  apiKey: "AIzaSyAmhkt14LxtC8hbUxM947l55RHVdAUZSJg",
+  authDomain: "stumpstat-635c1.firebaseapp.com",
+  projectId: "stumpstat-635c1",
+  storageBucket: "stumpstat-635c1.firebasestorage.app",
+  messagingSenderId: "666683005062",
+  appId: "1:666683005062:web:01366b9aaac20edf711907",
+  measurementId: "G-MLG3ED5DE7"
 };
 
+// Initialize Firebase
 export const app = initializeApp(firebaseConfig);
-
