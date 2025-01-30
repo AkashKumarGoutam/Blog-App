@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import LoadingComponents from '../components/LoadingComponents';
+import pic from "../assets/aboutPic.png";
 
 function AboutUs() {
   const [loading, setLoading] = useState(true);
@@ -34,7 +35,7 @@ function AboutUs() {
           {/* Image Section */}
           <div className="md:w-1/2">
             <img
-              src="https://i.pinimg.com/474x/8b/fa/72/8bfa72fd56471af37bf0d4bb88a2e623.jpg"
+              src={pic}
               alt="Cricket Action"
               className="w-full h-full object-cover"
             />
