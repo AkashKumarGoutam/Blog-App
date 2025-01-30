@@ -19,7 +19,7 @@ const StatAnalysis = () => {
   return (
     <div className="max-w-4xl mx-auto p-6 bg-gray-100 rounded-lg shadow-md">
       <h1 className="text-2xl font-bold text-center text-gray-800 mb-6">
-        Cricket Match Statistical Analysis
+        Cricket Match Statistical Articles
       </h1>
 
       {/* Match Details */}

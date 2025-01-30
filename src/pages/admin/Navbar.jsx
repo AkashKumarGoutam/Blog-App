@@ -51,14 +51,14 @@ const Navbar = () => {
               to="/all_news_articles"
               className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
             >
-              All Cricket Articles
+              Cricket Articles
             </Link>
             
             <Link
               to="/statistics"
               className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
             >
-              Statistics
+              Statistical Articles
             </Link>
             <Link
               to="/contact-us"
@@ -116,14 +116,22 @@ const Navbar = () => {
             className="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium"
             onClick={closeMenu} // Close menu on click
           >
-            All Match Cards
+            All Matches
           </Link>
           <Link
             to="/all_news_articles"
             className="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium"
             onClick={closeMenu} // Close menu on click
           >
-            All News Articles
+            Cricket Articles
+          </Link>
+          
+          <Link
+            to="/statistics"
+            className="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium"
+            onClick={closeMenu} // Close menu on click
+          >
+            Statistical Articles
           </Link>
           <Link
             to="/about_us"
@@ -131,13 +139,6 @@ const Navbar = () => {
             onClick={closeMenu} // Close menu on click
           >
             About Us
-          </Link>
-          <Link
-            to="/statistics"
-            className="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium"
-            onClick={closeMenu} // Close menu on click
-          >
-            Statistics
           </Link>
           <Link
             to="/contact-us"
