@@ -36,7 +36,7 @@ function Footer() {
                   to="/all-match-card"
                   className="hover:text-white transition duration-300"
                 >
-                  All Match Cards
+                  All Matches
                 </Link>
               </li>
               <li>
@@ -44,7 +44,16 @@ function Footer() {
                   to="/all_news_articles"
                   className="hover:text-white transition duration-300"
                 >
-                  All News Articles
+                  Cricket Articles
+                </Link>
+              </li>
+              
+              <li>
+                <Link
+                  to="/statistics"
+                  className="hover:text-white transition duration-300"
+                >
+                  Statistical Articles
                 </Link>
               </li>
               <li>
@@ -53,14 +62,6 @@ function Footer() {
                   className="hover:text-white transition duration-300"
                 >
                   About Us
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/statistics"
-                  className="hover:text-white transition duration-300"
-                >
-                  Statistics
                 </Link>
               </li>
               <li>
