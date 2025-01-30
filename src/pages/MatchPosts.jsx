@@ -50,7 +50,7 @@ function MatchPosts() {
               <img
                 src={post.imageUrl || "https://via.placeholder.com/150"}
                 alt={post.title}
-                className="w-full h-40 object-cover mt-2 rounded-md"
+                className="w-full h-48 object-cover mt-2 rounded-md"
               />
               <h3 className="text-lg text-white font-semibold mt-2">{post.title || "Untitled"}</h3>
               <p className="text-xs text-gray-100">
@@ -73,7 +73,7 @@ function MatchPosts() {
               </p>
               <hr className="my-2" />
               <div
-                className="text-sm text-gray-900 mt-2"
+                className="text-sm bg-gray-3 text-gray-100 mt-2"
                 dangerouslySetInnerHTML={{
                   __html: post.description || "No description available.",
                 }}
