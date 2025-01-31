@@ -36,12 +36,12 @@ function NavigateOnTopArrow() {
         <button
           onClick={topScroll}
           aria-label="Scroll to top"
-          className="w-10 h-10 bg-green-600 text-white rounded-full flex items-center justify-center shadow-md transform hover:scale-110 transition duration-300"
+          className="w-10 h-10 bg-green-600 text-white rounded-full flex items-center justify-center shadow-md transform transition-transform duration-300 hover:scale-110 hover:rotate-90"
         >
           <img
             src={arrow}
             alt="Scroll to top"
-            className="w-6 h-6"
+            className="w-8 h-8"
           />
         </button>
       </div>
