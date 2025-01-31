@@ -18,6 +18,7 @@ function AboutUs() {
   }
 
   return (
+   <div>
     <div className="bg-black text-white from-blue-50 via-white to-gray-100 min-h-screen px-6 py-10">
       {/* Hero Section */}
       <div className="text-center">
@@ -35,6 +36,7 @@ function AboutUs() {
           {/* Image Section */}
           <div className="md:w-1/2">
             <img
+              // src="https://i.pinimg.com/474x/8b/fa/72/8bfa72fd56471af37bf0d4bb88a2e623.jpg"
               src={pic}
               alt="Cricket Action"
               className="w-full h-full object-cover"
@@ -106,6 +108,7 @@ function AboutUs() {
         </p>
       </div>
     </div>
+   </div>
   );
 }
 

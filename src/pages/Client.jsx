@@ -3,10 +3,12 @@ import LatestSection from "../components/LatestSection";
 import banner from "../assets/Stump Stat-12.png";
 import { Link } from "react-router-dom";
 import CricketStatisticsHub from "../components/CricketStatisticsHub";
+import NavigateOnTopArrow from "../components/NavigateOnTopArrow";
 
 function Client() {
   return (
     <>
+    <NavigateOnTopArrow/>
       <div className="bg-black">
       <div className="flex bg-black px-12 flex-col lg:flex-row items-center justify-between h-full py-12">
         <div className="lg:w-1/2 text-white space-y-6 animate__animated animate__fadeInLeft">
@@ -37,7 +39,7 @@ function Client() {
           </div>
         </div>
         
-        <div className="lg:w-1/2 w-96 mt-12 lg:mt-0 animate__animated animate__fadeInRight">
+        <div className="lg:w-1/2 w-80 mt-12 lg:mt-0 animate__animated animate__fadeInRight">
           <div className="relative">
             <div className="absolute -inset-1 bg-gradient-to-r from-green-600 to-blue-600 rounded-lg blur opacity-30"></div>
             <div className="relative bg-neutral-00 p-6 rounded-lg shadow-xl transition duration-300">
