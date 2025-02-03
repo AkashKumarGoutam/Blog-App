@@ -44,6 +44,13 @@ function AllMatchCardPage() {
     return <LoadingComponents />;
   }
 
+   // Format date to dd/mm/yyyy
+   const formatDate = (dateString) => {
+    if (!dateString) return "N/A";
+    const date = new Date(dateString);
+    return date.toLocaleDateString("en-GB"); // "en-GB" gives dd/mm/yyyy format
+  };
+
   return (
     <>
       <div className="bg-black text-white">
@@ -76,7 +83,7 @@ function AllMatchCardPage() {
                   <div className="flex w-64 justify-between items-center mb-1">
                     <div className="flex items-center gap-2 text-xs">
                       <span className="text-yellow-200 font-medium">
-                        {match.date || "N/A"}
+                      {formatDate(match.date)}
                       </span>
                       <span className="text-gray-400">|</span>
                       <span className="text-yellow-200 font-semibold">

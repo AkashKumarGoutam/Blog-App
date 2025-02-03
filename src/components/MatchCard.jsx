@@ -1,6 +1,13 @@
 import React from "react";
 
 function MatchCard({ match, onClick }) {
+  // Format date to dd/mm/yyyy
+  const formatDate = (dateString) => {
+    if (!dateString) return "N/A";
+    const date = new Date(dateString);
+    return date.toLocaleDateString("en-GB"); // "en-GB" gives dd/mm/yyyy format
+  };
+
   return (
     <div
       onClick={onClick}
@@ -10,7 +17,7 @@ function MatchCard({ match, onClick }) {
       <div className="flex w-48 justify-between items-center mb-1">
         <div className="flex items-center gap-2 text-xs">
           <span className="text-yellow-200 font-medium">
-            {match.date || "N/A"}
+            {formatDate(match.date)}
           </span>
           <span className="text-gray-100">|</span>
           <span className="text-yellow-200 font-semibold">
@@ -52,7 +59,7 @@ function MatchCard({ match, onClick }) {
       {/* Winning Status */}
       <div className="text-end mt-2">
         <h1
-          className={`text-sm font-semibold ${
+          className={`text-xs ${
             match.winningStatus === "Live"
               ? "text-red-500 animate-pulse"
               : "text-green-500"

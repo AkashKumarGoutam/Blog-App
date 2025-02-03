@@ -76,7 +76,7 @@ function EditPost() {
       });
 
       alert("Post updated successfully!");
-      navigate("/admin/dashboard/all-posts");
+      navigate("/admin/dashboard/");
     } catch (error) {
       console.error("Error updating post:", error);
       alert("Error updating post. Please try again.");

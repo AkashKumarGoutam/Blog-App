@@ -63,7 +63,7 @@ function ParticularNewsArticles() {
   };
 
   return (
-    <div className="lg:flex lg:gap-8 bg-black text-white p-12">
+    <div className="lg:flex lg:flex-row-reverse lg:gap-8 bg-black text-white p-12">
       <div>
         <h1 className="py-3 font-semibold lg:text-2xl flex justify-center">
           News Articles
@@ -118,7 +118,7 @@ function ParticularNewsArticles() {
             </div>
 
             {/* Author and Date */}
-            <div className="flex justify-between items-center text-yellow-200 text-sm mb-6">
+            <div className="flex justify-between items-center text-yellow-200 text-xs mb-6">
               <div>
                 <strong>Author:</strong> {article?.author || "Unknown"}
               </div>

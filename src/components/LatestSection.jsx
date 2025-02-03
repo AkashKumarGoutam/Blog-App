@@ -86,7 +86,11 @@ function LatestSection() {
                   </div>
                 </article>
               ))}
+               <div>
+              <Link to="/all_news_articles" className="bg-gray-300 p-2 rounded-lg hover:bg-gray-100 hover:text-blue-800 transition duration-300">See more</Link>
             </div>
+            </div>
+           
 
             {/* Image Carousel Column */}
             {/* <div className="relative mb-96 lg:mb-0 l overflow-hidden h-full ">

@@ -47,22 +47,22 @@ function Client() {
                 <div className="bg-gray-900 p-4 rounded-lg hover:bg-gray-800 transition duration-300">
                   <h3 className="text-white font-semibold">Live Stats</h3>
                   <p className="text-green-400">IND vs AUS</p>
-                  <p className="text-gray-300 text-sm">1st Test - Day 2</p>
+                  {/* <p className="text-gray-300 text-sm">1st Test - Day 2</p> */}
                 </div>
                 <div className="bg-gray-900 p-4 rounded-lg hover:bg-gray-800 transition duration-300">
                   <h3 className="text-white font-semibold">Latest Stats</h3>
                   <p className="text-green-400">Player Rankings</p>
-                  <p className="text-gray-300 text-sm">Updated hourly</p>
+                  {/* <p className="text-gray-300 text-sm">Updated hourly</p> */}
                 </div>
                 <Link to="/statistics" className="bg-gray-900 p-4 rounded-lg hover:bg-gray-800 transition duration-300">
                   <h3 className="text-white font-semibold">Analysis</h3>
-                  <p className="text-green-400">Match Predictions</p>
-                  <p className="text-gray-300 text-sm">AI-powered insights</p>
+                  <p className="text-green-400">Match Stat</p>
+                  {/* <p className="text-gray-300 text-sm">AI-powered insights</p> */}
                 </Link>
                 <Link to="/all_news_articles" className="bg-gray-900 p-4 rounded-lg hover:bg-gray-800 transition duration-300">
                   <h3 className="text-white font-semibold">Articles</h3>
                   <p className="text-green-400">Expert Commentary</p>
-                  <p className="text-gray-300 text-sm">Daily updates</p>
+                  {/* <p className="text-gray-300 text-sm">Daily updates</p> */}
                 </Link>
               </div>
             </div>
