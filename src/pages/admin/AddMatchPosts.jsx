@@ -168,7 +168,7 @@ const AddMatchPosts = () => {
 
   return (
     <div className="p-6">
-      <h2 className="text-xl font-bold mb-4">{isEditing ? "Edit Match Post" : "Add Match Post"}</h2>
+      <h2 className="text-xl font-bold mb-4">{isEditing ? "Edit Match Stats" : "Add Match Stats"}</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
         <input
           placeholder="Title"
@@ -229,7 +229,7 @@ const AddMatchPosts = () => {
         color="primary"
         onClick={isEditing ? handleSaveEdit : handleAddMatchPost}
       >
-        {isEditing ? "Save Changes" : "Add Match Post"}
+        {isEditing ? "Save Changes" : "Add Match Stats"}
       </Button>
 
       <h2 className="text-xl font-bold my-6">Match Posts List</h2>

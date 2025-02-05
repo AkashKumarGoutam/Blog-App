@@ -45,7 +45,7 @@ function Sidebar() {
         </div>
 
         {/* Nav Links */}
-        <div className="pt-2">
+        <div className="uppercase pt-2">
           <div className="bg-gray-900 hover:bg-gray-700 transition duration p-2 mt-2">
             <NavLink
               to="all-articles"
@@ -110,7 +110,7 @@ function Sidebar() {
                 isActive ? "text-blue-500 font-bold" : "text-white text-xl my-4"
               }
             >
-              Add Matches post
+              Add Matches Stats
             </NavLink>
           </div>
           <div className="bg-gray-900 hover:bg-gray-700 transition duration p-2 mt-2">

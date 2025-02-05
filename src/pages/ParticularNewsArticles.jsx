@@ -4,7 +4,7 @@ import { getFirestore, doc, getDoc } from "firebase/firestore";
 import { app } from "../firebase/Firebase"; // Import Firebase configuration
 import LoadingComponents from "../components/LoadingComponents";
 import { format } from "date-fns"; // For date formatting
-import adsImage from "../assets/Stump Stat-9.png";
+import adsImage from "../assets/5.png";
 
 function ParticularNewsArticles() {
   const { id } = useParams(); // Get the dynamic parameter from the URL
@@ -63,10 +63,10 @@ function ParticularNewsArticles() {
   };
 
   return (
-    <div className="lg:flex lg:flex-row-reverse lg:gap-8 bg-black text-white p-12">
+    <div className="lg:flex lg:gap-8 bg-black text-white lg:p-12">
       <div>
-        <h1 className="py-3 font-semibold lg:text-2xl flex justify-center">
-          News Articles
+        <h1 className="py-3 font-semibold lg:text-2xl text-xl flex justify-center">
+          Cricket Articles
         </h1>
         <div className="max-w-3xl bg-gray-900 lg:flex flex-col gap-6 items-center justify-between mx-auto p-2 text-white rounded-lg shadow-md">
           <div>
@@ -79,7 +79,7 @@ function ParticularNewsArticles() {
           </div>
           <div>
             {/* Category */}
-            <p className="text-blue-700 text-sm uppercase font-semibold tracking-wide mb-2">
+            <p className="text-blue-700 pt-6 lg:pt-0 text-sm uppercase font-semibold tracking-wide mb-2">
               Category: {article?.category || "Uncategorized"}
             </p>
 

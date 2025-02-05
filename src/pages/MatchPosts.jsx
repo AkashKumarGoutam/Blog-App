@@ -34,8 +34,8 @@ function MatchPosts() {
   }, [db, slug]);
 
   return (
-    <div className="bg-black text-white p-6 px-12">
-      <h2 className="lg:text-3xl font-bold my-2 flex justify-center">Match Posts List</h2>
+    <div className="bg-black text-white p-6 lg:px-12">
+      <h2 className="text-3xl font-bold my-2 flex justify-center">Match Stats</h2>
       {loading ? (
         <LoadingComponents/>
       ) : matchPosts.length === 0 ? (

@@ -27,7 +27,7 @@ function Login() {
 
   return (
     <div className="flex justify-center items-center">
-      <div className="p-12 border-2 border-gray-600 rounded-xl mt-24">
+      <div className="p-12 border-2 border-gray-600 rounded-xl my-12">
         <h1 className="text-xl flex justify-center">Admin Login</h1>
         <form onSubmit={handleLogin}>
           <div className="py-4">

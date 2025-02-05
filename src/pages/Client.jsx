@@ -16,7 +16,7 @@ function Client() {
             Your Ultimate Cricket Statistics Hub
           </h1>
           <p className="text-gray-300 text-lg md:text-xl">
-            Real-time scores, in-depth analysis, and comprehensive cricket statistics at your fingertips.
+            Real-time stats , in-depth analysis, and comprehensive cricket statistics at your fingertips.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link to="/" className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-full font-semibold transition duration-300 animate__animated animate__pulse animate__infinite">

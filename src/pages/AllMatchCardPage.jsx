@@ -127,7 +127,7 @@ function AllMatchCardPage() {
                   </div>
                   <div className="text-end mt-2">
                     <h1
-                      className={`text-sm font-semibold ${
+                      className={`text-xs font-semibold ${
                         match.winningStatus === "Live"
                           ? "text-red-500 animate-pulse"
                           : "text-green-500"
