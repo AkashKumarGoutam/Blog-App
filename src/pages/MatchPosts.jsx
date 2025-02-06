@@ -53,24 +53,6 @@ function MatchPosts() {
                 className="w-full h-48 object-cover mt-2 rounded-md"
               />
               <h3 className="text-lg text-white font-semibold mt-2">{post.title || "Untitled"}</h3>
-              <p className="text-xs text-gray-100">
-                <strong className="text-yellow-200">Author:</strong> {post.author || "Unknown"}
-              </p>
-              <p className="text-xs text-gray-100">
-                <strong className="text-yellow-200">Date of Post:</strong>{" "}
-                {post.dateOfPost
-                  ? new Date(post.dateOfPost).toLocaleDateString()
-                  : "N/A"}
-              </p>
-              <p className="text-xs text-gray-100">
-                <strong className="text-yellow-200">Date of Match:</strong>{" "}
-                {post.dateOfMatch
-                  ? new Date(post.dateOfMatch).toLocaleDateString()
-                  : "N/A"}
-              </p>
-              <p className="text-xs text-gray-100">
-                <strong className="text-yellow-200">Slug:</strong> {post.slug || "N/A"}
-              </p>
               <hr className="my-2" />
               <div
                 className="text-sm bg-gray-3 text-gray-100 mt-2"
@@ -78,6 +60,28 @@ function MatchPosts() {
                   __html: post.description || "No description available.",
                 }}
               ></div>
+             <div className="flex justify-between pt-8">
+             <p className="text-xs text-gray-100">
+                <strong className="text-yellow-200">Author:</strong> {post.author || "Unknown"}
+              </p>
+              <p className="text-xs text-gray-100">
+                <strong className="text-yellow-200">Date of Match:</strong>{" "}
+                {post.dateOfMatch
+                  ? new Date(post.dateOfMatch).toLocaleDateString()
+                  : "N/A"}
+              </p>
+              </div>
+              {/* <p className="text-xs text-gray-100">
+                <strong className="text-yellow-200">Date of Post:</strong>{" "}
+                {post.dateOfPost
+                  ? new Date(post.dateOfPost).toLocaleDateString()
+                  : "N/A"}
+              </p> */}
+              
+              {/* <p className="text-xs text-gray-100">
+                <strong className="text-yellow-200">Slug:</strong> {post.slug || "N/A"}
+              </p> */}
+              
             </div>
           ))}
         </div>
