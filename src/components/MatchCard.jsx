@@ -11,10 +11,10 @@ function MatchCard({ match, onClick }) {
   return (
     <div
       onClick={onClick}
-      className="bg-gray-900 cursor-pointer text-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 w-[97%] h-44 mx-auto p-4"
+      className="bg-gray-900 cursor-pointer text-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 w-[97%] h-[92%] mx-auto p-4 flex flex-col justify-between"
     >
       {/* Match Info */}
-      <div className="flex lg:w-36 w-48 justify-between items-center mb-1">
+      <div className="flex lg:w-36 w-24 justify-between items-center mb-1">
         <div className="flex items-center gap-2 text-xs">
           <span className="text-yellow-200">
             {formatDate(match.date)}
@@ -23,11 +23,6 @@ function MatchCard({ match, onClick }) {
           <span className="text-yellow-200 w-24">
             {match.matchName || "N/A"}
           </span>
-          {/* <img
-            src="https://crex.live/assets/icon/rightArrow.svg"
-            alt="arrow"
-            className="w-3 h-3"
-          /> */}
         </div>
       </div>
 
@@ -35,7 +30,7 @@ function MatchCard({ match, onClick }) {
       <h1 className="text-xs text-gray-100 mb-4">{match.stadium || "N/A"}</h1>
 
       {/* Teams Section */}
-      <div className="flex flex-col gap-2">
+      <div className="flex pl-2 flex-col gap-2">
         {/* Team A */}
         <div className="flex items-center gap-4">
           <img
@@ -57,7 +52,7 @@ function MatchCard({ match, onClick }) {
       </div>
 
       {/* Winning Status */}
-      <div className="text-end mt-2">
+      <div className="mt-auto text-end">
         <h1
           className={`text-xs ${
             match.winningStatus === "Live"

@@ -46,7 +46,7 @@ function AllMatches() {
       } else if (window.innerWidth < 1280) {
         setCardsToShow(5);
       } else {
-        setCardsToShow(6);
+        setCardsToShow(5);
       }
     };
 
