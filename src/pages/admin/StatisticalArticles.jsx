@@ -15,17 +15,25 @@ function StatisticalArticles() {
   const handleSaveToFirebase = async () => {
     try {
       if (editId) {
-        const articleRef = doc(db, "articles", editId);
-        await updateDoc(articleRef, { content: description });
+        // Update existing article
+        const articleRef = doc(db, "statistical articles", editId);
+        await updateDoc(articleRef, {
+          content: description,
+          timestamp: new Date(),
+        });
+
         alert("Document successfully updated!");
         setEditId(null);
       } else {
+        // Add a new article
         const docRef = await addDoc(collection(db, "statistical articles"), {
           content: description,
           timestamp: new Date(),
         });
+
         alert("Document successfully written with ID: " + docRef.id);
       }
+
       setDescription("");
       fetchArticles();
     } catch (error) {
@@ -52,7 +60,7 @@ function StatisticalArticles() {
     if (!confirmDelete) return;
 
     try {
-      await deleteDoc(doc(db, "articles", id));
+      await deleteDoc(doc(db, "statistical articles", id));
       alert("Document successfully deleted!");
       fetchArticles();
     } catch (error) {
