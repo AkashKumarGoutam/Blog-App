@@ -11,7 +11,7 @@ function MatchCard({ match, onClick }) {
   return (
     <div
       onClick={onClick}
-      className="bg-gray-900 cursor-pointer text-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 w-[97%] h-[106%] mx-auto p-5 flex flex-col justify-between"
+      className="bg-gray-900 cursor-pointer text-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 w-[97%] h-[106%] mx-auto p-3 flex flex-col justify-between"
     >
       {/* Match Info */}
       <div className="flex lg:w-36 w-48 justify-between items-center mb-1">
