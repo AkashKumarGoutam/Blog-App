@@ -200,7 +200,7 @@ function Footer() {
               © 2025 Stump Stat. All rights reserved. 
             </p>
            <div className="flex items-center">
-           <p className="text-sm text-gray-400">© Developed & Designed by <span className="text-yellow-500 text-sm">Akash Kumar Goutam</span></p>
+           <p className="lg:text-sm text-xs text-gray-400">© Developed & Designed by <span className="text-yellow-500 lg:text-sm text-xs">Akash Kumar Goutam</span></p>
             <a
                   href="https://www.linkedin.com/in/akash-kumar-goutam-🇮🇳-8898b6229/"
                   target="_blank"
