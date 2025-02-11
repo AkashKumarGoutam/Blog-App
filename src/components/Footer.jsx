@@ -199,7 +199,16 @@ function Footer() {
             <p className="text-sm text-gray-400">
               © 2025 Stump Stat. All rights reserved. 
             </p>
-            <p className="text-sm text-gray-400">© Developed & Designed by <span className="text-yellow-500 text-sm">Akash Kumar Goutam</span></p>
+           <div className="flex items-center">
+           <p className="text-sm text-gray-400">© Developed & Designed by <span className="text-yellow-500 text-sm">Akash Kumar Goutam</span></p>
+            <a
+                  href="https://www.linkedin.com/in/akash-kumar-goutam-🇮🇳-8898b6229/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition duration-300"
+                >
+                    <img src="https://img.icons8.com/color/48/linkedin.png" className="w-5"/></a>
+           </div>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link
                 to="/"
