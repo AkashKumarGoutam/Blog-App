@@ -28,12 +28,12 @@ function Client() {
           </div> */}
           <div className="flex items-center space-x-4 mt-8">
             <div className="flex items-center">
-              <span className="text-green-500 text-4xl font-bold">5K+</span>
+              <span className="text-green-500 lg:text-4xl text-xl font-bold">5K+</span>
               <span className="text-gray-400 ml-2">Active Users</span>
             </div>
             <div className="w-px h-12 bg-gray-700"></div>
             <div className="flex items-center">
-              <span className="text-green-500 text-4xl font-bold">100%</span>
+              <span className="text-green-500 lg:text-4xl text-xl font-bold">100%</span>
               <span className="text-gray-400 ml-2">Real-time Data</span>
             </div>
           </div>
