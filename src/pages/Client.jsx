@@ -12,20 +12,20 @@ function Client() {
       <div className="bg-black">
       <div className="flex bg-black px-12 flex-col lg:flex-row items-center justify-between h-full py-12">
         <div className="lg:w-1/2 text-white space-y-6 animate__animated animate__fadeInLeft">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl lg:px-4 font-bold leading-tight">
             Your Ultimate Cricket Statistics Hub
           </h1>
           <p className="text-gray-300 text-lg md:text-xl">
             Real-time stats , in-depth analysis, and comprehensive cricket statistics at your fingertips.
           </p>
-          <div className="flex flex-wrap gap-4">
+          {/* <div className="flex flex-wrap gap-4">
             <Link to="/" className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-full font-semibold transition duration-300 animate__animated animate__pulse animate__infinite">
               Live Stats
             </Link>
             <Link to="/statistics" className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-3 rounded-full font-semibold transition duration-300">
               View Statistics
             </Link>
-          </div>
+          </div> */}
           <div className="flex items-center space-x-4 mt-8">
             <div className="flex items-center">
               <span className="text-green-500 text-4xl font-bold">5K+</span>
