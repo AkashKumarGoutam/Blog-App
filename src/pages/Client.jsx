@@ -10,7 +10,7 @@ function Client() {
     <>
     <NavigateOnTopArrow/>
       <div className="bg-black">
-      <div className="flex bg-black lg:px-12 flex-col lg:flex-row items-center justify-between h-full py-12">
+      <div className="flex bg-black lg:px-12 px-4 flex-col lg:flex-row items-center justify-between h-full py-12">
         <div className="lg:w-1/2 text-white space-y-6 animate__animated animate__fadeInLeft">
           <h1 className="text-4xl md:text-5xl lg:text-6xl lg:px-4 font-bold leading-tight">
             Your Ultimate Cricket Statistics Hub
@@ -33,7 +33,7 @@ function Client() {
             </div>
             <div className="w-px h-12 bg-gray-700"></div>
             <div className="flex items-center">
-              <span className="text-green-500 text-4xl font-bold">100%</span>
+              <span className="text-green-500 lg:text-4xl font-bold">100%</span>
               <span className="text-gray-400 ml-2">Real-time Data</span>
             </div>
           </div>
