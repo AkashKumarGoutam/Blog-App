@@ -14,6 +14,10 @@ const StatAnalysis = () => {
         id: doc.id,
         ...doc.data(),
       }));
+
+          // Sort articles by timestamp (most recent first)
+      articlesData.sort((a, b) => (b.timestamp?.seconds || 0) - (a.timestamp?.seconds || 0));
+
       setArticles(articlesData);
     } catch (error) {
       console.error("Error fetching articles: ", error);
@@ -30,7 +34,7 @@ const StatAnalysis = () => {
       <h2 className="text-2xl font-bold mb-4 flex justify-center">Statistical Articles</h2>
       {articles.length > 0 ? (
         articles.map((article) => (
-          <div key={article.id} className="p-10 border rounded-lg mb-4 bg-gray-100">
+          <div key={article.id} className="p-10 border rounded-lg my-6 bg-gray-100">
             <div dangerouslySetInnerHTML={{ __html: article.content }} />
             <p className="text-sm text-gray-500 mt-2">
               Saved on: {article.timestamp ? new Date(article.timestamp.seconds * 1000).toLocaleString() : "No timestamp"}
