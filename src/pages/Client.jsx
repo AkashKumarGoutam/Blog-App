@@ -45,12 +45,12 @@ function Client() {
             <div className="relative bg-neutral-00 p-6 rounded-lg shadow-xl transition duration-300">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="bg-gray-900 p-4 rounded-lg hover:bg-gray-800 transition duration-300">
-                  <h3 className="text-white font-semibold">Live Stats</h3>
-                  <p className="text-green-400">IND vs AUS</p>
+                  <h3 className="text-white font-semibold">Live / Latest  Stats</h3>
+                  <p className="text-green-400">You can see cricket stats</p>
                 </div>
                 <div className="bg-gray-900 p-4 rounded-lg hover:bg-gray-800 transition duration-300">
-                  <h3 className="text-white font-semibold">Latest Stats</h3>
-                  <p className="text-green-400">Player Rankings</p>
+                  <h3 className="text-white font-semibold">Previous Match Stats</h3>
+                  <p className="text-green-400">You can see previous stats</p>
                 </div>
                 <Link to="/statistics" className="bg-gray-900 p-4 rounded-lg hover:bg-gray-800 transition duration-300">
                   <h3 className="text-white font-semibold">Analysis</h3>
