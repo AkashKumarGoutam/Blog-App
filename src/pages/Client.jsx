@@ -10,7 +10,7 @@ function Client() {
     <>
     <NavigateOnTopArrow/>
       <div className="bg-black">
-      <div className="flex bg-black px-12 flex-col lg:flex-row items-center justify-between h-full py-12">
+      <div className="flex bg-black lg:px-12 flex-col lg:flex-row items-center justify-between h-full py-12">
         <div className="lg:w-1/2 text-white space-y-6 animate__animated animate__fadeInLeft">
           <h1 className="text-4xl md:text-5xl lg:text-6xl lg:px-4 font-bold leading-tight">
             Your Ultimate Cricket Statistics Hub
