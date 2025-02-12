@@ -146,6 +146,17 @@ function Sidebar() {
               Statistical Articles
             </NavLink>
           </div>
+          <div className="bg-gray-900 hover:bg-gray-700 transition duration p-2 mt-2">
+            <NavLink
+              to="contact-details-list"
+              onClick={closeSidebar} // Close sidebar when clicked
+              className={({ isActive }) =>
+                isActive ? "text-blue-500 font-bold" : "text-white text-xl my-4"
+              }
+            >
+              Contact Details List
+            </NavLink>
+          </div>
         </div>
       </div>
     </div>

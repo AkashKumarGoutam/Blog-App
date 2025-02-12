@@ -31,7 +31,7 @@ const StatAnalysis = () => {
 
   return (
     <div className="mt-8 lg:px-32">
-      <h2 className="text-2xl font-bold mb-4 flex justify-center">Statistical Articles</h2>
+      <h2 className="text-3xl uppercase font-bold mb-4 underline flex justify-center">Statistical Articles</h2>
       {articles.length > 0 ? (
         articles.map((article) => (
           <div key={article.id} className="p-10 border rounded-lg my-6 bg-gray-100">
