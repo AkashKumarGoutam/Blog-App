@@ -87,7 +87,7 @@ function AllMatches() {
 
   const handleCardClick = (matchSlug) => {
     logAnalyticsEvent("match_card_clicked", { match_slug: matchSlug });
-    alert("Opening match stats!");
+    // alert("Opening match stats!");
     navigate(`/match-post/${matchSlug}`);
   };
 

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { logAnalyticsEvent } from "./firebase";
+import { logAnalyticsEvent } from "../firebase/Firebase";
 import LatestSection from "../components/LatestSection";
 import banner from "../assets/Stump Stat-12.png";
 import { Link } from "react-router-dom";
