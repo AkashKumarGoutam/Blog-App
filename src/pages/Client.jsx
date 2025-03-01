@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { logAnalyticsEvent } from "./firebase";
 import LatestSection from "../components/LatestSection";
 import banner from "../assets/Stump Stat-12.png";
 import { Link } from "react-router-dom";
@@ -6,6 +7,9 @@ import CricketStatisticsHub from "../components/CricketStatisticsHub";
 import NavigateOnTopArrow from "../components/NavigateOnTopArrow";
 
 function Client() {
+  useEffect(() => {
+    logAnalyticsEvent("page_view", { page: "Home" });
+  }, []);
   return (
     <>
     <NavigateOnTopArrow/>

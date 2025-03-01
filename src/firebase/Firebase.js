@@ -1,6 +1,5 @@
-// Import Firebase modules
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { getAnalytics, logEvent } from "firebase/analytics";
 
 // Firebase configuration
 const firebaseConfig = {
@@ -17,4 +16,9 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
-export { app, analytics };
+// Function to log events
+const logAnalyticsEvent = (eventName, eventParams) => {
+  logEvent(analytics, eventName, eventParams);
+};
+
+export { app, analytics, logAnalyticsEvent };
