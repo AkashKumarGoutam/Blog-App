@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { logAnalyticsEvent } from "./firebase";
 import MatchCard from "./MatchCard";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 import { app } from "../firebase/Firebase";
@@ -69,6 +70,7 @@ function AllMatches() {
   };
 
   const handleCardClick = (matchSlug) => {
+    logAnalyticsEvent("button_click", { button_name: "Open Match Stat" });
     navigate(`/match-post/${matchSlug}`);
   };
 
