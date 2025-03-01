@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { logAnalyticsEvent } from "../firebase/Firebase";
 import { FaLinkedin } from "react-icons/fa";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 import { app } from "../firebase/Firebase"; // Import Firebase config
@@ -27,6 +28,7 @@ const ContactPage = () => {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+    logAnalyticsEvent("form_submission", { form_name: "Contact Us Submitted" });
     setLoading(true);
     try {
       await addDoc(collection(db, "contact details"), {
