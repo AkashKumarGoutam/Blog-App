@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { logAnalyticsEvent } from "./firebase";
+import { logAnalyticsEvent } from "../firebase/Firebase";
 import MatchCard from "./MatchCard";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 import { app } from "../firebase/Firebase";
@@ -14,7 +14,10 @@ function AllMatches() {
   const navigate = useNavigate();
   const db = getFirestore(app);
 
+  // Track component load event
   useEffect(() => {
+    logAnalyticsEvent("all_matches_loaded", { status: "Component Mounted" });
+
     const fetchMatchCards = async () => {
       try {
         const querySnapshot = await getDocs(collection(db, "matchcards"));
@@ -23,14 +26,19 @@ function AllMatches() {
           ...doc.data(),
         }));
 
-        // Sort by date (descending)
         const sortedMatches = matches.sort(
           (a, b) => new Date(b.date) - new Date(a.date)
         );
 
         setMatchCards(sortedMatches.slice(0, 10)); // Limit to 10 matches
+
+        // Log event when match data is successfully fetched
+        logAnalyticsEvent("match_data_fetched", {
+          count: sortedMatches.length,
+        });
       } catch (error) {
         console.error("Error fetching matchcards: ", error);
+        logAnalyticsEvent("match_data_fetch_error", { error: error.message });
       }
     };
 
@@ -39,7 +47,7 @@ function AllMatches() {
 
   useEffect(() => {
     const updateView = () => {
-      setIsMobile(window.innerWidth < 768); // Mobile view if screen width < 768px
+      setIsMobile(window.innerWidth < 768);
       if (window.innerWidth < 640) {
         setCardsToShow(2);
       } else if (window.innerWidth < 1024) {
@@ -60,17 +68,26 @@ function AllMatches() {
   const handleNext = () => {
     if (currentIndex + cardsToShow < matchCards.length) {
       setCurrentIndex(currentIndex + 1);
+      logAnalyticsEvent("next_button_clicked", {
+        current_index: currentIndex,
+        new_index: currentIndex + 1,
+      });
     }
   };
 
   const handlePrev = () => {
     if (currentIndex > 0) {
       setCurrentIndex(currentIndex - 1);
+      logAnalyticsEvent("prev_button_clicked", {
+        current_index: currentIndex,
+        new_index: currentIndex - 1,
+      });
     }
   };
 
   const handleCardClick = (matchSlug) => {
-    logAnalyticsEvent("button_click", { button_name: "Open Match Stat" });
+    logAnalyticsEvent("match_card_clicked", { match_slug: matchSlug });
+    alert("Opening match stats!");
     navigate(`/match-post/${matchSlug}`);
   };
 
